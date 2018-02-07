@@ -1,0 +1,134 @@
+# ---------------------------------------------------------------------------- #
+# Version 0.1.0 [2017-11-03]
+#
+# Defines the recommended .gitignore globally for repository.
+#
+#   Project     : Project Boilerplate
+#   Markup      : .gitignore
+#   Author      : Rye Miller <dev@ryemiller.com>
+#   Version     : 0.1.0
+#   Created     : 2017-11-03
+#   License     : MIT
+#   License URL : https://opensource.org/licenses/MIT
+#
+# Website:        http://www.ryemiller.com
+# Copyright:      (c) 2017 Rye Miller
+# ---------------------------------------------------------------------------- #
+
+# -------------  Root .ignores  ------------ #
+!/CHANGELOG.md
+!/CONTRIBUTING.md
+!/CONTRIBUTORS.md
+!/.gitattributes
+!/.gitignore
+#/.htaccess
+!/LICENSE
+!/README.md
+!/RELEASENOTES.md
+!/TODO.md
+
+
+# -------------  JetBrains IDE  ------------ #
+/.idea/
+
+# Includes content by explicitly telling git
+# what files/dirs you want sourced (be careful)
+!/.idea/copyright
+!/.idea/inspectionProfiles
+!/.idea/modules.xml
+!/.idea/misc.xml
+!/.idea/vagrant.xml
+
+# --------------  File Based  -------------- #
+*iml
+.ipr
+.iws
+
+# ---------------  Composer  --------------- #
+composer.phar
+/vendor/
+
+# ----------------  Vagrant  --------------- #
+/.vagrant/
+
+# ----------------  Dropbox  --------------- #
+.dropbox
+.dropbox.attr
+.dropbox.cache
+
+# --------------  Logs and DB  ------------- #
+*.sql
+*.sqlite
+
+# -----------  Node JS .ignores  ----------- #
+*.css.map
+/bower_components/
+/.bower-cache
+/.bower-registry
+/.bower-tmp
+/dist/
+/deploy/
+/.grunt
+lib-cov
+*.seed
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.env
+/node_modules/
+npm-debug.log
+/.sass-cache/
+/.sass-cache-imports/
+/.tmp/
+
+# -----------  Windows .ignores  ----------- #
+Desktop.ini
+ehthumbs.db
+/$RECYCLE.BIN
+Thumbs.db
+
+# ------------  Linux .ignores  ------------ #
+*~
+# .*
+
+# -----------  Mac OSX .ignores  ----------- #
+._*
+.AppleDouble
+.DS_Store*
+.DS_Store?
+Icon
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+# -----------  Default .ignores  ----------- #
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swo
+*.swp
+*.tgz
+*.vi
+*.zip
+*~*
+
+# ------------  Media .ignores  ------------ #
+*.pict
+*.svg
+*.gif
+*.jpg
+*.swf
+*.fla
+*.flv
+*.psd
+*.png
+*.pdf
+*.TTF
+*.ttf
+*.cdr
+
+# ---------  Additional .ignores  ---------- #
