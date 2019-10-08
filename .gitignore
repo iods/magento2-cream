@@ -76,7 +76,7 @@ lib-cov
 *.out
 *.pid
 *.gz
-*.env
+# *.env
 /node_modules/
 npm-debug.log
 /.sass-cache/
