@@ -2,7 +2,7 @@ FROM php:7.2-apache
 
 LABEL author="Rye Miller" \
 	  vendor="Darkstar" \
-      version="0.1.0"
+      version="0.1.1"
 
 RUN \
     apt-get update && apt-get install -y \
