@@ -132,3 +132,4 @@ Icon
 *.cdr
 
 # ---------  Additional .ignores  ---------- #
+/bin
