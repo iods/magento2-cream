@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+
+  # Image for Frontend (application server)
+  web:
+    build:
+      context: ./dev/php-apache
+    container_name: drk_web
+    restart: on-failure
+    links:
+      - db
+    ports:
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
+    volumes:
+      - ./conf/config/www.conf:/etc/apache2/www.conf
+    volumes_from:
+      - code
+
+  # Image for the Database (development environment only)
+  db:
+    image: mysql:${MYSQL_VER}
+    command: "--default-authentication-plugin=mysql_native_password"
+    container_name: drk_db
+    restart: on-failure
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+
+# # Image for the Blackfire.io Profiling
+#  blackfire:
+#    image: blackfire/blackfire
+#    container_name: drk_profile
+#    restart: always
+#    environment:
+#      - BLACKFIRE_SERVER_ID=${BLACKFIRE_SERVER_ID}
+#      - BLACKFIRE_SERVER_TOKEN=${BLACKFIRE_SERVER_TOKEN}
+
+  # Image for Code repository
+  code:
+    image: busybox
+    container_name: drk_code
+    volumes:
+      - ./src/:/var/www/html
