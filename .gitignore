@@ -133,3 +133,5 @@ Icon
 
 # ---------  Additional .ignores  ---------- #
 /bin
+/data/mysql
+!/data/flow/import.sql
