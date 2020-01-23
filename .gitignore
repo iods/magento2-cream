@@ -76,7 +76,7 @@ lib-cov
 *.out
 *.pid
 *.gz
-*.env
+# *.env
 /node_modules/
 npm-debug.log
 /.sass-cache/
@@ -132,3 +132,6 @@ Icon
 *.cdr
 
 # ---------  Additional .ignores  ---------- #
+/bin
+/data/mysql
+!/data/flow/import.sql
