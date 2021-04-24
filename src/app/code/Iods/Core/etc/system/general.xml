@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Core module for extending and testing functionality across Magento 2
+ *
+ * @package   Iods_Core
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright (c) 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+-->
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label><![CDATA[General Configuration]]></label>
+
+        <frontend_model>Magento\Config\Block\System\Config\Form\Fieldset</frontend_model>
+        <field id="version" translate="label" type="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Extension version</label>
+            <frontend_model>Iods\Core\Block\Adminhtml\System\Config\Field\Version</frontend_model>
+        </field>
+    </group>
+</include>

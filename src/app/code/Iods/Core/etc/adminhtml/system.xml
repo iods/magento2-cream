@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Core module for extending and testing functionality across Magento 2
+ *
+ * @package   Iods_Core
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright (c) 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+
+    <system>
+        <tab id="iods" translate="label" sortOrder="100002">
+            <label>Iods</label>
+        </tab>
+
+        <section id="core" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>General</label>
+            <tab>iods</tab>
+            <resource>Iods_Core::core_settings</resource>
+            <include path="Iods_Core::system/core_general.xml" />
+        </section>
+    </system>
+</config>

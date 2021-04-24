@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# [ -z "$1" ] && echo "Please specify the version to download (ex. 2.0.0)" && exit
+
+source ./bin/create-envfile
+source ./var/env/config.env
+
+
+function isTargetDirEmpty() {
+  if [ -d $1 ] && [ "$(ls -A $1)" ]; then
+      echo "The $1 directory is not empty."
+      exit 1
+  fi
+}
+
+
+function sourceFileExists() {
+  if [ ! -f $1 ]; then
+    echo "Magento version $MAGENTO_VERSION was not downloaded."
+    ANSWER=$(./bin/helper/question "Do you want to download it now")
+    ### https://stackoverflow.com/questions/1885525/how-do-i-prompt-a-user-for-confirmation-in-bash-script
+
+    if [ $ANSWER == "0" ]; then
+      echo
+      echo "Ok! Stopping the process."
+      exit 1
+    fi
+
+    echo
+    bin/magento-download $MAGENTO_VERSION
+  fi
+}
+
+
+if [ -z "$1" ]; then
+	source ./.env
+else
+	MAGENTO_VERSION="$1"
+fi
+
+FILE_NAME=$MAGENTO_VERSION.tar.gz
+SOURCE_FILE=$DOWNLOAD_DIR/$FILE_NAME
+
+mkdir -p $EXTRACT_DIR
+
+isTargetDirEmpty $EXTRACT_DIR
+sourceFileExists $SOURCE_FILE
+
+echo "Extracting Magento $MAGENTO_VERSION version to $EXTRACT_DIR"
+tar xzf $SOURCE_FILE -o -C $EXTRACT_DIR --strip 1

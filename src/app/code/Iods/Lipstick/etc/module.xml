@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * A little lipstick for personalizing the customer experience in Magento 2
+ *
+ * @package   Iods_Lipstick
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright (c) 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+
+    <module name="Iods_Lipstick" setup_version="0.0.1">
+        <sequence>
+            <module name="Iods_Core" />
+            <module name="Iods_CoreUi" />
+            <module name="Iods_Bunyan" />
+            <module name="Iods_Acuity" />
+        </sequence>
+    </module>
+</config>

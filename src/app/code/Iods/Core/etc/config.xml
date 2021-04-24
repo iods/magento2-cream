@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Core module for extending and testing functionality across Magento 2
+ *
+ * @package   Iods_Core
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright (c) 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+
+    <default>
+    </default>
+</config>

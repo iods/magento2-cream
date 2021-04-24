@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * A theme package dedicated to learning and improving the Magento 2 UI
+ *
+ * @package   Iods_Acuity
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright © 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+
+    <module name="Iods_Acuity" setup_version="0.0.1">
+        <sequence>
+            <module name="Iods_Core"/>
+            <module name="Iods_CoreUi"/>
+            <module name="Iods_Config"/>
+        </sequence>
+    </module>
+</config>

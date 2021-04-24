@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+source ./var/env/config.env
+source ./bin/helper/services-status
+
+if ( areServicesRunning -eq 0 ); then
+    echo "The services are already running."
+    exit
+fi
+
+if [ ! -d "$EXTRACT_DIR" ]; then
+  mkdir -p $EXTRACT_DIR
+fi
+
+source bin/create-envfile
+./bin/helper/xdebug-prepare
+bin/docker-compose up -d --remove-orphans $1
+
+## Blackfire support
+# ------------------
+## First register the blackfire agent with:
+#bin/root blackfire-agent --register --server-id={YOUR_SERVER_ID} --server-token={YOUR_SERVER_TOKEN}
+## Then uncomment the below line (and leave uncommented) to start the agent automatically with bin/start:
+#bin/root /etc/init.d/blackfire-agent start

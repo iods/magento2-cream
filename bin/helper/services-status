@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+function areServicesRunning() {
+    RESULT=$(bin/status --filter "status=running" --services)
+
+    if [ -z "$RESULT" ]; then
+        return 1;
+    else
+        return 0;
+    fi
+}
+
+
+function areServicesStopped() {
+    RESULT=$(bin/status --filter "status=stopped" --services)
+
+    if [ -z "$RESULT" ]; then
+        return 1;
+    else
+        return 0;
+    fi   
+}
+
+
+function servicesExist() {
+    RESULT=$(bin/status --quiet)
+
+    if [ -z "$RESULT" ]; then
+        return 1;
+    else
+        return 0;
+    fi
+}

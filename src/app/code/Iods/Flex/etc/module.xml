@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Manage the import/export profiles for data sources in Magento 2
+ *
+ * @package   Iods_Flex
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright (c) 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+
+    <module name="Iods_Flex" setup_version="0.0.1">
+        <sequence>
+            <module name="Iods_Core" />
+            <module name="Iods_Bunyan" />
+            <module name="Iods_Config" />
+        </sequence>
+    </module>
+</config>

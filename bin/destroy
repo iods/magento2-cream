@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source bin/create-envfile
+source ./var/env/config.env
+source ./.env
+
+bin/remove -a
+#rm -rf $EXTRACT_DIR
+rm -rf $NGINX_CONF_DIR/$BASE_URL*
+rm -rf ./var/xdebug/.xdebug

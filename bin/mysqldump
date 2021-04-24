@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+source bin/create-envfile
+source ./.env
+
+FILENAME="${MYSQL_DUMP_DIR}/magento.sql"
+#FILENAME="magento.sql"
+COMMAND_BASE="/usr/bin/mysqldump -h ${MYSQL_HOST} -u ${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE} > ${FILENAME}"
+
+bin/exec db ${COMMAND_BASE} "$@"
