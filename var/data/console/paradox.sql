@@ -1,0 +1,16 @@
+SELECT `paradoxlabs_stored_card`.`id`,
+    `paradoxlabs_stored_card`.`customer_id`,
+    `paradoxlabs_stored_card`.`customer_email`,
+    `paradoxlabs_stored_card`.`customer_ip`,
+    `paradoxlabs_stored_card`.`profile_id`,
+    `paradoxlabs_stored_card`.`payment_id`,
+    `paradoxlabs_stored_card`.`method`,
+    `paradoxlabs_stored_card`.`active`,
+    `paradoxlabs_stored_card`.`created_at`,
+    `paradoxlabs_stored_card`.`updated_at`,
+    `paradoxlabs_stored_card`.`last_use`,
+    `paradoxlabs_stored_card`.`expires`,
+    `paradoxlabs_stored_card`.`address`,
+    `paradoxlabs_stored_card`.`additional`,
+    `paradoxlabs_stored_card`.`hash`
+FROM `magento`.`paradoxlabs_stored_card`;

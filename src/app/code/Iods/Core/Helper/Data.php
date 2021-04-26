@@ -11,8 +11,9 @@ declare(strict_types=1);
 
 namespace Iods\Core\Helper;
 
-use Magento\Framework\App\Helper\AbstractHelper;
+# https://magento.stackexchange.com/a/74994
 use Magento\Framework\App\Helper\Context;
+
 use Magento\Framework\Component\ComponentRegistrar;
 use Magento\Framework\Component\ComponentRegistrarInterface;
 
