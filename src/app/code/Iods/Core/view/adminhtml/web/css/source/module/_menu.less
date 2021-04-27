@@ -1,0 +1,31 @@
+li[data-ui-id*="menu-magemontreal-"] {
+    a > span, strong > span {
+        &:after {
+            content: ' ';
+            background-image: url('MageMontreal_Core::images/magemontreal-logo-grayscale.png');
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            float: right;
+            margin-right: -10px;
+            opacity: 0.5;
+        }
+    }
+
+    .submenu {
+        a > span, strong > span {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+#system_config_tabs .magemontreal-tab .admin__page-nav-title strong {
+    background-image: url('MageMontreal_Core::images/magemontreal-logo-dark.png');
+    background-size: auto 20px;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+}

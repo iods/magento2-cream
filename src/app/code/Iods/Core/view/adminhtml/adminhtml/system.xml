@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author MageMontreal
+ * @copyright Copyright © 2020 MageMontreal. All rights reserved.
+ * @package MageMontreal_Core
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magemontreal" translate="label" sortOrder="0" class="magemontreal-tab">
+            <label>MageMontreal</label>
+        </tab>
+    </system>
+</config>

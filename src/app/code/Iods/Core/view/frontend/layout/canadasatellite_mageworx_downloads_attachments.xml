@@ -1,0 +1,24 @@
+<?xml version='1.0'?>
+<page
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'
+>
+	<body>
+<!-- 2021-03-23 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+1) `MageWorx_Downloads`: "«Call to a member function setProductItem() on boolean
+in app/design/frontend/MageSuper/magestylish/Magento_Sales/templates/order/items.phtml:37»
+on printing an order by a customer": https://github.com/canadasatellite-ca/site/issues/32
+2) I have implemented a solution by analogy with: https://github.com/canadasatellite-ca/site/blob/2021-03-23/app/design/frontend/MageSuper/magestylish/Magento_Sales/layout/sales_order_view.xml#L5-L10
+2021-03-30 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+`MageWorx_Downloads`: «Call to a member function setProductItem() on boolean»
+in `app/design/frontend/MageSuper/magestylish/Magento_Sales/templates/order/items.phtml:37`
+on `POST` to `sales/guest/form`": https://github.com/canadasatellite-ca/site/issues/61 -->
+		<referenceContainer name='order_items'>
+			<block
+				class='CanadaSatellite\Theme\Block\Catalog\Product\Attachments'
+				name='catalog.product.top.list.mageworx.downloads.attachments'
+				template='CanadaSatellite_Theme::attachment_container_quote.phtml'
+			/>
+		</referenceContainer>
+	</body>
+</page>
