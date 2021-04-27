@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Framework\Filesystem\Directory\ReadFactory" type="Yireo\DevHacks\Override\DirectoryReadFactoryWithPathFixed"/>
+
+    <preference for="Magento\Framework\Filesystem\Directory\ReadInterface" type="Yireo\DevHacks\Override\DirectoryReadWithPathFixed"/>
+
+    <type name="Magento\Framework\View\Element\Template\File\Validator">
+        <plugin name="templatesymlink_view_element_template_file_validator" type="Yireo\DevHacks\Plugin\FileValidator" sortOrder="10" disabled="false"/>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="yireo_devhacks_integrationtesting_phpunit_toggletestscleanup" xsi:type="object">Yireo\DevHacks\Console\Command\IntegrationTesting\PhpUnitFile\ToggleTestsCleanup</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
+
+
+        <?xml version="1.0"?>
+        <!--
+          ~ Copyright © 2020
+          ~ @copyright Alex Ghiban & JustinKase.ca - All rights reserved.
+          ~ @license GPL-3.0-only
+          ~ @see https://justinkase.ca or https://ghiban.com
+          ~ @contact <alex@justinkase.ca>
+          -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<virtualType name="enableHints" type="JustinKase\LayoutHints\Console\Command\Hints">
+    <arguments>
+        <argument name="name" xsi:type="string">justinkase:hints:on</argument>
+        <argument name="description" xsi:type="string">Enable Hints</argument>
+        <argument name="setState" xsi:type="number">1</argument>
+    </arguments>
+</virtualType>
+
+<type name="Magento\Framework\Console\CommandListInterface">
+    <arguments>
+        <argument name="commands" xsi:type="array">
+            <item name="justinkase_hints_enable" xsi:type="object">enableHints</item>
+            <item name="justinkase_hints_disable" xsi:type="object">JustinKase\LayoutHints\Console\Command\Hints</item>
+        </argument>
+    </arguments>
+</type>
+</config>
+
+
+        <?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Benchmark_Stock" xsi:type="object">Xigen\Benchmark\Console\Command\Stock</item>
+                <item name="Benchmark_Status" xsi:type="object">Xigen\Benchmark\Console\Command\Status</item>
+                <item name="Benchmark_Price" xsi:type="object">Xigen\Benchmark\Console\Command\Price</item>
+                <item name="Benchmark_Customer" xsi:type="object">Xigen\Benchmark\Console\Command\Customer</item>
+                <item name="Benchmark_Category" xsi:type="object">Xigen\Benchmark\Console\Command\Category</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
+        <?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<type name="Magento\Framework\Console\CommandList">
+    <arguments>
+        <argument name="commands" xsi:type="array">
+            <item name="Xigen_php" xsi:type="object">Xigen\PhpCheck\Console\Command\Php</item>
+        </argument>
+    </arguments>
+</type>
+</config>
+        <?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<type name="Magento\Framework\Console\CommandList">
+    <arguments>
+        <argument name="commands" xsi:type="array">
+            <item name="Faker_Customer" xsi:type="object">Xigen\Faker\Console\Command\Customer</item>
+            <item name="Faker_Product" xsi:type="object">Xigen\Faker\Console\Command\Product</item>
+            <item name="Faker_Category" xsi:type="object">Xigen\Faker\Console\Command\Category</item>
+            <item name="Faker_Order" xsi:type="object">Xigen\Faker\Console\Command\Order</item>
+            <item name="Faker_Review" xsi:type="object">Xigen\Faker\Console\Command\Review</item>
+        </argument>
+    </arguments>
+</type>
+</config>
+
+        <?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+    <arguments>
+        <argument name="collections" xsi:type="array">
+            <item name="sagar_custom_listing_data_source" xsi:type="string">Sagar\Custom\Model\ResourceModel\CustomData\Collection</item>
+        </argument>
+    </arguments>
+</type>
+<!-- Image Uploader -->
+<virtualType name="VirtualTypeName" type="Magento\Catalog\Model\ImageUploader">
+    <arguments>
+        <argument name="baseTmpPath" xsi:type="string">customdata/images/</argument>
+        <argument name="basePath" xsi:type="string">customdata/images/</argument>
+        <argument name="allowedExtensions" xsi:type="array">
+            <item name="jpg" xsi:type="string">jpg</item>
+            <item name="jpeg" xsi:type="string">jpeg</item>
+            <item name="gif" xsi:type="string">gif</item>
+            <item name="png" xsi:type="string">png</item>
+        </argument>
+    </arguments>
+</virtualType>
+<type name="Sagar\Custom\Controller\Adminhtml\Action\Upload">
+    <arguments>
+        <argument name="imageUploader" xsi:type="object">VirtualTypeName</argument>
+    </arguments>
+</type>
+<virtualType name="VirtualTypeNames" type="Magento\Catalog\Model\ImageUploader">
+    <arguments>
+        <argument name="baseTmpPath" xsi:type="string">customdatathumbnail/images/</argument>
+        <argument name="basePath" xsi:type="string">customdatathumbnail/images/</argument>
+        <argument name="allowedExtensions" xsi:type="array">
+            <item name="jpg" xsi:type="string">jpg</item>
+            <item name="jpeg" xsi:type="string">jpeg</item>
+            <item name="gif" xsi:type="string">gif</item>
+            <item name="png" xsi:type="string">png</item>
+        </argument>
+    </arguments>
+</virtualType>
+<type name="Sagar\Custom\Controller\Adminhtml\Action\UploadThumbnail">
+    <arguments>
+        <argument name="imageUploaders" xsi:type="object">VirtualTypeNames</argument>
+    </arguments>
+</type>
+<!-- End Image Uploader -->
+</config>

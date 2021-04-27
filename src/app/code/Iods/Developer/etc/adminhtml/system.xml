@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Developer tools for Magento 2
+ *
+ * @package   Iods_Developer
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright © 2020, Rye Miller (https://ryemiller.io)
+ * @license   MIT (https://en.wikipedia.org/wiki/MIT_License)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+
+    <system>
+
+        <section id="developer" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Developer</label>
+            <tab>iods</tab>
+            <resource>Iods_Developer::developer_settings</resource>
+            <include path="Iods_Developer::system/developer_information.xml" />
+        </section>
+    </system>
+</config>
+
+
+        <?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<system>
+    <tab id="sagar_tabs" translate="label" sortOrder="300">
+        <label>Sagar</label>
+    </tab>
+    <section id="sagardata" translate="label" type="text" sortOrder="1009" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Custom Grid Configuration</label>
+        <tab>sagar_tabs</tab>
+        <resource>Sagar_Custom::config</resource>
+        <group id="customdata" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>General Configuration</label>
+            <field id="api_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>API Key</label>
+            </field>
+            <field id="page_number" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <validate>validate-number</validate>
+                <label>Page Number</label>
+            </field>
+            <field id="page_size" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <validate>validate-number</validate>
+                <label>Page Size</label>
+            </field>
+        </group>
+    </section>
+</system>
+</config>
+        -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<system>
+    <section id="dev">
+        <group id="justinkase_hints" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>JustinKase - Layout Hints</label>
+            <field id="status" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Layout Hints Status</label>
+                <comment>Not available in production mode</comment>
+                <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+            </field>
+        </group>
+    </section>
+</system>
+</config>
+
+        <?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<system>
+    <tab id="espressobytes_modules" translate="label" sortOrder="975">
+        <label>Espressobytes Modules</label>
+    </tab>
+    <section id="espressobytes_debughints" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+
+        <label>Debug Hints</label>
+        <tab>espressobytes_modules</tab>
+        <resource>Magento_Config::config_system</resource>
+
+        <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>General</label>
+            <field id="show_frontend_hints" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Show Frontend Hints</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="show_adminhtml_hints" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Show Adminhtml Hints</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+        </group>
+
+    </section>
+</system>
+</config>
+
+
+

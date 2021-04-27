@@ -1,0 +1,34 @@
+<?php
+/**
+ * Copyright © 2016 FireGento e.V.
+ * See LICENSE.md bundled with this module for license details.
+ */
+
+/**
+ * @var $block \FireGento\MageSetup\Block\Imprint\Content
+ */
+?>
+<?php if (strlen(trim($block->getImprintValue('bank_account'))) || strlen(trim($block->getImprintValue('swift')))): ?>
+    <h3><?= $block->escapeHtml(__('Bank Information')) ?></h3>
+    <?php if ($accountOwner = $block->getImprintValue('bank_account_owner')): ?>
+        <?= $block->escapeHtml(__('Account owner')) ?>: <?= $block->escapeHtml($accountOwner) ?><br/>
+    <?php endif ?>
+    <?php if ($bankAccount = $block->getImprintValue('bank_account')): ?>
+        <?= $block->escapeHtml(__('Account')) ?>: <?= $block->escapeHtml($bankAccount) ?><br/>
+    <?php endif ?>
+    <?php if ($bankCodeNumber = $block->getImprintValue('bank_code_number')): ?>
+        <?= $block->escapeHtml(__('Bank number')) ?>: <?= $block->escapeHtml($bankCodeNumber) ?><br/>
+    <?php endif ?>
+    <?php if ($bankName = $block->getImprintValue('bank_name')): ?>
+        <?= $block->escapeHtml(__('Bank name')) ?>: <?= $block->escapeHtml($bankName) ?><br/>
+    <?php endif ?>
+    <?php if ($swift = $block->getImprintValue('swift')): ?>
+        <?= $block->escapeHtml(__('BIC/Swift-Code')) ?>: <?= $block->escapeHtml($swift) ?><br/>
+    <?php endif ?>
+    <?php if ($iban = $block->getImprintValue('iban')): ?>
+        <?= $block->escapeHtml(__('IBAN')) ?>: <?= $block->escapeHtml($iban) ?><br/>
+    <?php endif ?>
+    <?php if ($clearing = $block->getImprintValue('clearing')): ?>
+        <?= $block->escapeHtml(__('Clearing')) ?>: <?= $block->escapeHtml($clearing) ?><br/>
+    <?php endif ?>
+<?php endif ?>

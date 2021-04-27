@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © 2016 FireGento e.V.
+ * See LICENSE.md bundled with this module for license details.
+ */
+
+/**
+ * @var $block \FireGento\MageSetup\Block\Imprint\Content
+ */
+?>
+<?= $block->escapeHtml($block->getImprintValue('company_first')) ?><br/>
+<?php if ($companySecond = $block->getImprintValue('company_second')): ?>
+    <?= $block->escapeHtml($companySecond) ?><br/>
+<?php endif; ?>
+<?= $block->escapeHtml($block->getImprintValue('street')) ?><br/>
+<?= $block->escapeHtml($block->getImprintValue('zip')) ?> <?= $block->escapeHtml($block->getImprintValue('city')) ?>
+<?php if ($country = $block->getCountry()): ?>
+    <br/><?= $block->escapeHtml($country) ?>
+<?php endif; ?>

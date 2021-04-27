@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <espressobytes_debughints>
+            <general>
+                <show_frontend_hints>1</show_frontend_hints>
+                <show_adminhtml_hints>1</show_adminhtml_hints>
+            </general>
+        </espressobytes_debughints>
+    </default>
+</config>
+        <?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+<default>
+    <sagardata>
+        <customdata>
+            <api_key>3NLTTNlXsi6rBWl7nYGluOdkl2htFHug</api_key>
+            <page_number>1</page_number>
+            <page_size>30</page_size>
+        </customdata>
+    </sagardata>
+</default>
+</config>
+        <?xml version="1.0"?>
+        <!--
+          ~ Copyright © 2020
+          ~ @copyright Alex Ghiban & JustinKase.ca - All rights reserved.
+          ~ @license GPL-3.0-only
+          ~ @see https://justinkase.ca or https://ghiban.com
+          ~ @contact <alex@justinkase.ca>
+          -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+<default>
+    <dev>
+        <justinkase_hints>
+            <status>0</status>
+        </justinkase_hints>
+    </dev>
+</default>
+</config>

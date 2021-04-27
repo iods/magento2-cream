@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © 2016 FireGento e.V.
+ * See LICENSE.md bundled with this module for license details.
+ */
+
+/**
+ * @var $block \FireGento\MageSetup\Block\Imprint\Content
+ */
+?>
+<?php if ($telephone = $block->getImprintValue('telephone')): ?>
+    <?= $block->escapeHtml(__('Telephone')) ?>: <?= $block->escapeHtml($block->getImprintValue('telephone')) ?>
+    <?php if ($telephoneAdditional = $block->getImprintValue('telephone_additional')): ?>
+        (<?= $block->escapeHtml($telephoneAdditional) ?>)
+    <?php endif ?>
+    <br/>
+<?php endif ?>
+<?php if ($fax = $block->getImprintValue('fax')): ?>
+    <?= $block->escapeHtml(__('Fax')) ?>: <?= $block->escapeHtml($fax) ?><br/>
+<?php endif ?>
+<?php if (strlen(trim($block->getWeb()))): ?>
+    <?= $block->escapeHtml(__('Web')) ?>:
+    <a href="<?= $block->escapeHtmlAttr($block->getWeb(true)) ?>"
+       title="<?= $block->escapeHtmlAttr($block->getImprintValue('company_first')) ?>">
+        <?= $block->escapeHtml($block->getWeb()) ?>
+    </a><br/>
+<?php endif ?>
+<?php if (strlen(trim($block->getEmail()))): ?>
+    <?= $block->escapeHtml(__('E-Mail')) ?>: <?= /* @noEscape */ $block->getEmail(true) ?>
+<?php endif; ?>

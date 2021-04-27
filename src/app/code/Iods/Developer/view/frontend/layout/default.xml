@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2020
+  ~ @copyright Alex Ghiban & JustinKase.ca - All rights reserved.
+  ~ @license GPL-3.0-only
+  ~ @see https://justinkase.ca or https://ghiban.com
+  ~ @contact <alex@justinkase.ca>
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="root">
+            <block name="justinkase_layout_info" as="jkase_info" class="JustinKase\LayoutHints\Block\Info" template="JustinKase_LayoutHints::info.phtml" after="-"/>
+        </referenceContainer>
+    </body>
+</page>
