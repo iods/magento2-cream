@@ -1,0 +1,53 @@
+{
+    "name": "iods/module-lipstick",
+    "description": "",
+    "type": "magento2-module",
+    "version": "0.2.0",
+    "homepage": "https://ryemiller.io",
+    "license": [
+        "MIT"
+    ],
+    "authors": [
+        {
+            "name": "Rye Miller",
+            "email": "rye@drkstr.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "repositories": {
+        "magento": {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    },
+    "require": {
+        "php": ">=7.3",
+        "magento/framework": ">=103",
+        "symfony/console": "*",
+    },
+    "require-dev": {
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.11",
+        "phpstan/phpstan-phpunit": "^0.11",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "files": ["registration.php"],
+        "psr-4": {
+            "Iods\\Lipstick\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Iods\\Lipstick\\Tests\\Unit\\": "tests/unit"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@phpstan",
+            "@phpunit"
+        ],
+        "phpstan": "phpstan analyse",
+        "phpunit": "phpunit --no-coverage"
+    }
+}

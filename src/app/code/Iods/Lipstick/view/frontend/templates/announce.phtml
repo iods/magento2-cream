@@ -1,0 +1,34 @@
+<?php
+/**
+ * @author Dominic <dominic@xigen.co.uk>
+ * @todo catch impressions
+ */
+use Xigen\Announce\Helper\Data;
+
+$helper = $block->getFetchHelper();
+$impression = $block->getStatsHelper();
+?>
+<?= /* @noEscape */ $block->getGeneratedComment(Data::OPENING_TAG); ?>
+<?php if ($groups = $helper->getGroupsForBlock([$block->getPosition(), $block->getCategoryPosition()])): ?>
+    <?php foreach ($groups as $group): ?>
+        <div id="<?= $block->escapeHtmlAttr($block->getGeneratedBlockId($group, DATA::GROUP)) ?>"
+             class="<?= $block->escapeHtmlAttr($block->getGenerateBlockClass($group, DATA::GROUP)) ?>">
+            <?php if ($messages = $helper->getMessageByGroup($group)): ?>
+                <?php foreach ($messages as $message): ?>
+                    <div id="<?= $block->escapeHtmlAttr($block->getGeneratedBlockId($message, DATA::MESSAGE)) ?>"
+                        class="<?= $block->escapeHtmlAttr($block->getGenerateBlockClass($message, DATA::MESSAGE)) ?>">
+                        <?= /* @noEscape */ $block->stripTags(
+                            $block->filter($message->getContent()),
+                            '<a><span><div><p><ul><li><table><td><tr><strong>'
+                        ); ?>
+                    </div>
+                    <?php $impression->setImpression(
+                        $group->getGroupId(),
+                        $message->getMessageId()
+                    ); ?>
+                <?php endforeach; ?>
+            <?php endif; ?>                
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+<?= /* @noEscape */ $block->getGeneratedComment(Data::CLOSING_TAG); ?>
