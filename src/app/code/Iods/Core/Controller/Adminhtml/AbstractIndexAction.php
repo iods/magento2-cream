@@ -1,0 +1,59 @@
+<?php
+/**
+ * Core module for extending and testing functionality across Magento 2
+ *
+ * @package   Iods_Core
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright (c) 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+declare(strict_types=1);
+
+namespace Iods\Core\Controller\Adminhtml;
+
+use Magento\Backend\App\Action;
+use Magento\Backend\Model\View\Result\Page;
+use Magento\Backend\Model\View\Result\Redirect;
+use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Framework\App\Request\DataPersistorInterface;
+use Magento\Framework\Controller\ResultFactory;
+
+
+abstract class AbstractIndexAction extends Action implements HttpGetActionInterface
+{
+    /**
+     * @var DataPersistorInterface
+     */
+    protected $dataPersistor;
+
+    /**
+     * @param IndexContext $context
+     */
+    public function __construct(IndexContext $context)
+    {
+        parent::__construct($context);
+
+        $this->dataPersistor = $context->getDataPersistor();
+    }
+
+    /**
+     * @param string $persistKey
+     * @param string $activeMenu
+     * @param string $pageTitle
+     * @return Page|Redirect
+     */
+    protected function render(
+        string $persistKey,
+        string $activeMenu,
+        string $pageTitle
+    ) {
+        $this->dataPersistor->clear($persistKey);
+
+        /* @var $resultPage Page */
+        $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+        $resultPage->setActiveMenu($activeMenu);
+        $resultPage->getConfig()->getTitle()->prepend(__($pageTitle));
+
+        return $resultPage;
+    }
+}
