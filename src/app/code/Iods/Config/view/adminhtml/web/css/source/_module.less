@@ -1,0 +1,91 @@
+.nr-custom-infobox {
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    line-height: 1.5;
+    margin: 1em 0 1.5em 0;
+
+    a {
+        color: #529dd6;
+    }
+
+    a:hover {
+        color: #4088bf;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #eee;
+        padding: 15px 25px 10px;
+        position: relative;
+        border-bottom: 1px solid #ddd;
+
+        img {
+            width: 150px;
+        }
+    }
+
+    .container {
+        .row {
+            display: flex;
+
+            .col {
+
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                padding: 25px;
+
+                &.content {
+                    flex: 2;
+                    p {
+                        margin: 0 0 1.5em;
+                    }
+
+                    p:last-of-type {
+                        margin-bottom: 0.75em;
+                    }
+
+                    ul, ol {
+                        margin: 0 0 0 1.5em;
+                        padding-left: 0;
+                        list-style-type: decimal;
+
+                        ul, ol {
+                            list-style-type: lower-alpha;
+                        }
+                    }
+                }
+
+                &.side {
+                    flex: 1;
+
+                    aside {
+                        background: #fff;
+                        border: 1px dashed #ddd;
+
+                        ul {
+                            padding-left: 15px;
+                        }
+
+                        li {
+                            list-style-position: inside;
+                        }
+
+                        h3 {
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+
+                        .section {
+                            padding: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
