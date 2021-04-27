@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace Iods\Core\Helper;
 
+class Seo {}
+
 //class Mirasvit_Seo_Helper_Data extends Mage_Core_Helper_Abstract
 //{
 //    protected $_product;
