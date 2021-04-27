@@ -1,0 +1,55 @@
+{
+    "name": "iods/module-frostbite",
+    "description": "A library for keeping links warm and checked in Magento 2",
+    "type": "magento2-module",
+    "version": "1.1.1",
+    "license": [
+        "MIT"
+    ],
+    "authors": [
+        {
+            "name": "Rye Miller",
+            "email": "rye@drkstr.dev",
+            "homepage": "https://ryemiller.io",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "repositories": {
+        "magento": {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    },
+    "require": {
+        "php": ">=7.3",
+        "magento/framework": ">=103",
+        "symfony/stopwatch": "*"
+    },
+    "require-dev": {
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.11",
+        "phpstan/phpstan-phpunit": "^0.11",
+        "phpunit/phpunit": "*",
+        "composer/composer": "*@dev"
+    },
+    "autoload": {
+        "files": ["registration.php"],
+        "psr-4": {
+            "Iods\\Frostbite\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Iods\\Frostbite\\Tests\\Unit\\": "tests/unit"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@phpstan",
+            "@phpunit"
+        ],
+        "phpstan": "phpstan analyse",
+        "phpunit": "phpunit --no-coverage"
+    }
+}
