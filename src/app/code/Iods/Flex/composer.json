@@ -1,0 +1,21 @@
+{
+  "name": "iods/module-flux",
+  "description": "A dataflow (import/export) toolset for Magento 2.",
+  "type": "magento2-module",
+  "homepage": "http://ryemiller.io",
+  "license": [
+    "MIT"
+  ],
+  "require": {
+    "php": ">=7.3.0",
+
+    "iods/module-core": "^1.0"
+  },
+  "autoload": {
+    "files": ["registration.php"],
+    "psr-4": {
+      "Iods\\Flux\\": ""
+    }
+  },
+  "version": "0.0.0"
+}
