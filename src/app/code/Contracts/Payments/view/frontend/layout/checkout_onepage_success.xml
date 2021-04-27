@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body>
+	<referenceContainer name="order.success.additional.info">
+		<block class="Dholi\Payment\Block\Onepage\Success\Additional"
+		       name="dholi.order.success.additional.info"
+		       after="-">
+		</block>
+	</referenceContainer>
+</body>

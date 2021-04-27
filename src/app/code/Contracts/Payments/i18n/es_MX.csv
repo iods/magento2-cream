@@ -1,0 +1,58 @@
+# -- A
+"Authorize","Captura [Manual]"
+"Authorize + Capture","Captura [Automática]"
+"Account information","Credenciales"
+"Accept credit cards and boleto bancário at your Magento store.<br/>The purchase is completed at the store.","Acepta tarjetas de crédito y boleto bancário en tu tienda Magento.<br/>La compra se completa en la tienda."
+# -- C
+"Cancellation Option","Opción de cancelar"
+"Cancel orders automatically?","¿Cancelar pedidos automáticamente?"
+
+# -- D
+"Discount first installment","Descuento de efectivo"
+"Deadline In days","Plazo, en días naturales, que el sistema cancelará compras.<br/>El sistema agregará este término al término de validez del boleto."
+"Dholi - Transparent Payment","Dholi - Pago Transparente"
+
+# -- E
+"Expiration Days","Duracion"
+"Environment","Ambiente"
+
+# -- F
+"Flat icon","Icono plano"
+
+# -- H
+"Holder Birth Date","Fecha de nacimiento"
+
+# -- I
+"Installments options","Opciones de pago a plazos"
+"Installmens without interest","Cuotas sin intereses"
+"Interest a.m.","Interés a.m."
+"In days","En días"
+
+# -- N
+"No icon","Sin icono"
+
+# -- M
+"Min installment amount","Valor mínimo de la cuota"
+"Mono icon","Icono monocromo"
+
+# -- O
+"Outline icon","Icono de contorno"
+
+# -- P
+"Pay %1","Pagar %1"
+"Production","Producción"
+"Please enter a valid credit card verification number","Ingrese un código de seguridad de tarjeta de crédito válido."
+
+# -- R
+"Receipt","Recepción"
+
+# -- S
+"Sandbox","Sandbox"
+"Single icon","Icono con escrituras"
+"Shopping on Thursday","Compras el jueves"
+"Shopping on Friday","Compras el viernes"
+"Shopping on Saturday","Compras el sábado"
+"Shopping between Sunday and Wednesday","Compras de domingo a miércoles"
+
+# -- T
+"Total installments","Cuotas totales"
