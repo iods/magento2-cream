@@ -61,5 +61,4 @@
 
 !/src/generated/.htaccess
 
-!/src/auth.json.sample
 !/src/composer.*
