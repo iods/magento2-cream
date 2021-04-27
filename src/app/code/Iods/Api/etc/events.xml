@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="modulehelloworld_register_visit">
+        <observer name="register_modulehelloworld_visit" instance="AHT\ModuleHelloWorld\Observer\RegisterVisitObserver" />
+
+    </event>
+    <event name="checkout_cart_product_add_after">
+   	 <observer name="check_cart_qty" instance="AHT\ModuleHelloWorld\Observer\CheckCartQtyObserver" />
+    </event>
+</config>

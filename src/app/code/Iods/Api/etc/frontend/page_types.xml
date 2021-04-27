@@ -1,0 +1,6 @@
+<page_types
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_types.xsd">
+    <type id='modulehelloworld_index_index' label="Module Helloworld landing page" />
+    <type id='modulehelloworld_index_newproducts' label="Module Helloworld new products" />
+</page_types>

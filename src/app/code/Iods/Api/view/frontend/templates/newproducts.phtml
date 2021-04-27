@@ -1,0 +1,10 @@
+<?php
+
+/** @var \AHT\ModuleHelloWorld\Block\Template $block */
+?>
+<h2>New Products</h2>
+<ul>
+    <?php foreach ($block->getProducts() as $product) : ?>
+        <li><?= $product->getName() ?></li>
+    <?php endforeach; ?>
+</ul>

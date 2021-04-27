@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Module Helloworld</title>
+    </head>
+    <body>
+        <!-- <referenceContainer name="wishlist_sidebar" remove="true" /> -->
+        <referenceContainer name="content">
+            <block class="AHT\ModuleHelloWorld\Block\Landingspage" name="landingsblock"  template="AHT_ModuleHelloWorld::landingspage.phtml" />
+            <block class='AHT\ModuleHelloWorld\Block\Newproducts' name='newproducts' template='AHT_ModuleHelloWorld::newproducts.phtml' />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- <type name='Magento\Catalog\Model\Product'>
+        <plugin name='AHT_ModuleHelloWorld::productName' type="AHT\ModuleHelloWorld\Plugin\Catalog\ProductAround" sortOrder="1" />
+    </type> -->
+    <type name='Magento\Framework\Console\CommandList'>
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name='moduleHelloWorldCommand' xsi:type="object">AHT\ModuleHelloWorld\Console\Command\ModuleHelloWorldCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- API Subscription Mapping -->
+    <preference for='AHT\ModuleHelloWorld\Api\SubscriptionRepositoryInterface' type='AHT\ModuleHelloWorld\Model\ResourceModel\SubscriptionRepository' />
+    <preference for='AHT\ModuleHelloWorld\Api\Data\SubscriptionInterface' type='AHT\ModuleHelloWorld\Model\Subscription' />
+
+    <!-- SubscriptionsGridDataProvider -->
+    <virtualType name="SubscriptionsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">AHT\ModuleHelloWorld\Model\ResourceModel\Subscription\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">SubscriptionsGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="SubscriptionsGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="subscription_test_listing_data_source" xsi:type="string">AHT\ModuleHelloWorld\Model\ResourceModel\Subscription\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="AHT\ModuleHelloWorld\Model\ResourceModel\Subscription\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">aht_helloworld_subscription</argument>
+            <argument name="resourceModel" xsi:type="string">AHT\ModuleHelloWorld\Model\ResourceModel\Subscription</argument>
+        </arguments>
+    </virtualType>
+</config>

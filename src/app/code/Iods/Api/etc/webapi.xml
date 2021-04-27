@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/subscriptions" method="GET">
+        <service class="AHT\ModuleHelloWorld\Api\SubscriptionRepositoryInterface" method="getList"/>
+        <resources>
+            <!-- <resource ref="AHT_ModuleHelloWorld::subscription_index"/> -->
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    
+    <route url="/V1/subscriptions/:subscription_id" method="GET">
+        <service class="AHT\ModuleHelloWorld\Api\SubscriptionRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    
+    <route url="/V1/subscriptions" method="post">
+        <service class="AHT\ModuleHelloWorld\Api\SubscriptionRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    
+    <route url="/V1/subscriptions/:subscription_id" method="put">
+        <service class="AHT\ModuleHelloWorld\Api\SubscriptionRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    
+    <route url="/V1/subscriptions/:subscription_id" method="delete">
+        <service class="AHT\ModuleHelloWorld\Api\SubscriptionRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
