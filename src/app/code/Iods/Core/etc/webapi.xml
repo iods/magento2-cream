@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/easymanage/exportproducts" method="POST">
+        <service class="Develodesign\Easymanage\Api\ExportProductsInterface" method="export"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+    <route url="/V1/easymanage/search" method="POST">
+        <service class="Develodesign\Easymanage\Api\ExportProductsInterface" method="search"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+    <route url="/V1/easymanage/exportcustomers" method="POST">
+        <service class="Develodesign\Easymanage\Api\ExportCustomersInterface" method="export"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+    <route url="/V1/easymanage/searchcustomers" method="POST">
+        <service class="Develodesign\Easymanage\Api\ExportCustomersInterface" method="search"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+    <route url="/V1/easymanage/save" method="POST">
+        <service class="Develodesign\Easymanage\Api\SaveProductsInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+    <route url="/V1/easymanage/process" method="POST">
+        <service class="Develodesign\Easymanage\Api\SaveProductsInterface" method="process"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+    <route url="/V1/easymanage/allrevisions" method="POST">
+        <service class="Develodesign\Easymanage\Api\RevisionProductsInterface" method="allrevisions"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+    <route url="/V1/easymanage/revision" method="POST">
+        <service class="Develodesign\Easymanage\Api\RevisionProductsInterface" method="revision"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+    <route url="/V1/easymanage/loadrevision" method="POST">
+        <service class="Develodesign\Easymanage\Api\RevisionProductsInterface" method="loadrevision"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+
+    <route url="/V1/easymanage/ping" method="GET">
+        <service class="Develodesign\Easymanage\Api\PingInterface" method="ping"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+    <!-- mail -->
+
+    <route url="/V1/easymanage/mailprocess" method="POST">
+        <service class="Develodesign\Easymanage\Api\MailprocessInterface" method="process"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+
+    <route url="/V1/easymanage/subscriberids" method="POST">
+        <service class="Develodesign\Easymanage\Api\MailprocessInterface" method="subscriberids"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+
+    <!-- mail templates -->
+
+    <route url="/V1/easymanage/mailtemplateall" method="GET">
+        <service class="Develodesign\Easymanage\Api\MailTemplateInterface" method="all"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+
+    <route url="/V1/easymanage/mailtemplatesave" method="POST">
+        <service class="Develodesign\Easymanage\Api\MailTemplateInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+
+    <route url="/V1/easymanage/mailtemplatedelete" method="POST">
+        <service class="Develodesign\Easymanage\Api\MailTemplateInterface" method="deleteone"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+
+    <route url="/V1/easymanage/mailtemplateget" method="POST">
+        <service class="Develodesign\Easymanage\Api\MailTemplateInterface" method="getone"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+
+    <!-- importer -->
+    <route url="/V1/easymanage/importersave" method="POST">
+        <service class="Develodesign\Easymanage\Api\ImporterInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+    <route url="/V1/easymanage/importerprocess" method="POST">
+        <service class="Develodesign\Easymanage\Api\ImporterInterface" method="process"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources>
+    </route>
+
+    <route url="/V1/easymanage/importerfetch" method="POST">
+        <service class="Develodesign\Easymanage\Api\ImporterInterface" method="fetch"/>
+        <!-- resources>
+            <resource ref="Magento_Catalog::catalog"/>
+
+        </resources -->
+    </route>
+
+    <!--
+        test func
+        show is module installed and enebled
+        url accessible by all
+    -->
+
+    <route url="/V1/easymanage/test" method="GET">
+        <service class="Develodesign\Easymanage\Api\TestInterface" method="test"/>
+    </route>
+
+    <!-- trigger -->
+
+    <route url="/V1/easymanage/triggers" method="POST">
+        <service class="Develodesign\Easymanage\Api\TriggerInterface" method="trigger"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+
+    <!-- attributes -->
+
+    <route url="/V1/easymanage/attributes" method="POST">
+        <service class="Develodesign\Easymanage\Api\AttributesInterface" method="all"/>
+        <!-- resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources -->
+    </route>
+
+    <!-- custom addons -->
+
+    <!-- manage unsubscribers -->
+
+    <route url="/V1/easymanage/exportunsubscribers" method="POST">
+        <service class="Develodesign\Easymanage\Api\MailunsubscribersInterface" method="exportunsubscribers"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+
+    <route url="/V1/easymanage/saveunsubscribers" method="POST">
+        <service class="Develodesign\Easymanage\Api\MailunsubscribersInterface" method="saveunsubscribers"/>
+        <resources>
+            <resource ref="Magento_Catalog::catalog"/>
+        </resources>
+    </route>
+
+
+</routes>

@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Core module for extending and testing functionality across Magento 2
+ *
+ * @package   Iods_Core
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright (c) 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+
+    <acl>
+
+
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Mageplaza_Core::menu" title="Mageplaza Extensions" sortOrder="50">
+                    <resource id="Mageplaza_Core::documentation" title="Documentations" sortOrder="50">
+                        <resource id="Mageplaza_Core::userguide" title="User Guides" sortOrder="50"/>
+                    </resource>
+                    <resource id="Mageplaza_Core::activate" title="Active Module" sortOrder="70"/>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Mageplaza_Core::configuration" title="Mageplaza Information" sortOrder="10"/>
+                            <resource id="Mageplaza_Core::marketplace" title="Mageplaza Marketplace" sortOrder="10"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Iods_Core::core_settings" title="@iods Magento Extensions" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+
+            <resource id="Magento_Backend::admin">
+                <resource id="Iods_Core::core_settings" title="@iods Magento Extensions" sortOrder="40"/>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Iods_Core::configuration" title="@iods Extension Configuration" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
+
+
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+<acl>
+    <resources>
+        <resource id="Magento_Backend::admin" >
+            <resource id="Magento_Backend::stores">
+                <resource id="Magento_Backend::stores_settings">
+                    <resource id="Magento_Config::config">
+                        <resource id="GDW_Core::config" title="GDW_Core Config" sortOrder="1"/>
+                        <resource id="GDW_Core::modulelistconfig" title="Module List Config" sortOrder="999"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</acl>
+</config>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+<acl>
+    <resources>
+        <resource id="Magento_Backend::admin">
+
+            <resource id="Magento_Backend::stores">
+                <resource id="Magento_Backend::stores_settings">
+                    <resource id="Magento_Config::config">
+                        <resource id="Develo_Easymanages::configuration" title="Develodesign_Designer configuration" />
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</acl>
+</config>

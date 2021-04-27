@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Indexer\Model\Processor" type="Develo\IndexerLoopFix\Rewrite\Magento\Indexer\Model\Processor"/>
+</config>
+
+
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<type name="Magento\Framework\MessageQueue\ConnectionTypeResolver">
+    <arguments>
+        <argument xsi:type="array" name="resolvers">
+            <item xsi:type="object" name="dummy">Yireo\Fixes\MessageQueue\DummyConnectionTypeResolver</item>
+        </argument>
+    </arguments>
+</type>
+</config>
+
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magelicious\Core\Model\Customer">
+        <arguments>
+            <argument name="customerUrl" xsi:type="object">Magento\Customer\Model\Url\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="runStockImport" xsi:type="object">Magelicious\Core\Console\Command\RunStockImportCommand
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>
+        <?xml version="1.0"?>
+        <!--
+        /**
+         * @package Asp\ConfigScopeGuide
+         * @author Adam Sprada <adam.sprada@gmail.com>
+         * @copyright 2020 Adam Sprada
+         * @license See LICENSE for license details.
+         */
+        -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<type name="Magento\Config\Model\Config\Structure\Element\Field">
+    <plugin name="asp_config_scope_guide_magento_config_structure_element_field_plugin"
+            type="Asp\ConfigScopeGuide\Plugin\ConfigGuidePlugin"
+            sortOrder="1"
+            disabled="false" />
+</type>
+</config>
+
+
+    <?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<preference for="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider" type="Magestio\Core\Ui\DataProvider\Product\ProductDataProvider" />
+</config>
+
+
+    <?xml version="1.0"?>
+    <!--
+    /**
+     * Mageplaza_Core extension
+     *                     NOTICE OF LICENSE
+     *
+     *                     This source file is subject to the Mageplaza License
+     *                     that is bundled with this package in the file LICENSE.txt.
+     *                     It is also available through the world-wide-web at this URL:
+     *                     https://www.mageplaza.com/LICENSE.txt
+     *
+     *                     @category  Mageplaza
+     *                     @package   Mageplaza_Core
+     *                     @copyright Copyright (c) 2016
+     *                     @license   https://www.mageplaza.com/LICENSE.txt Mageplaza License
+     */
+    -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<virtualType name="MageplazaCoreGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+    <arguments>
+        <argument name="appliers" xsi:type="array">
+            <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+            <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+        </argument>
+    </arguments>
+</virtualType>
+<virtualType name="MageplazaCoreCoreGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+    <arguments>
+        <argument name="collection" xsi:type="object" shared="false">Mageplaza\Core\Model\ResourceModel\Core\Collection</argument>
+        <argument name="filterPool" xsi:type="object" shared="false">MageplazaCoreGirdFilterPool</argument>
+    </arguments>
+</virtualType>
+<type name="Mageplaza\Core\Model\ResourceModel\Core\Grid\Collection">
+    <arguments>
+        <argument name="mainTable" xsi:type="string">mageplaza_core_core</argument>
+        <argument name="eventPrefix" xsi:type="string">mageplaza_core_core_grid_collection</argument>
+        <argument name="eventObject" xsi:type="string">core_grid_collection</argument>
+        <argument name="resourceModel" xsi:type="string">Mageplaza\Core\Model\ResourceModel\Core</argument>
+    </arguments>
+</type>
+<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+    <arguments>
+        <argument name="collections" xsi:type="array">
+            <item name="mageplaza_core_core_listing_data_source" xsi:type="string">Mageplaza\Core\Model\ResourceModel\Core\Grid\Collection</item>
+        </argument>
+    </arguments>
+</type>
+</config>
+    <?xml version='1.0'?>
+<config
+xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+xsi:noNamespaceSchemaLocation='urn:magento:framework:ObjectManager/etc/config.xsd'
+>
+<!-- 2019-10-07
+"Transfer the `\Magento\Framework\Stdlib\DateTime\Timezone::isScopeDateInInterval()` method modification
+to the `tradefurniturecompany/core` module":
+https://github.com/tradefurniturecompany/core/issues/13 -->
+<type name='Magento\Framework\Stdlib\DateTime\Timezone'>
+    <plugin
+        name='TFC\Core\Plugin\Framework\Stdlib\DateTime\Timezone'
+        type='TFC\Core\Plugin\Framework\Stdlib\DateTime\Timezone'
+    />
+</type>
+<!-- 2020-12-13
+"`WeltPixel_OwlCarouselSlider`: properly size images": https://github.com/tradefurniturecompany/site/issues/158 -->
+<type name='Magento\MediaStorage\App\Media'>
+    <plugin name='TFC\Core\Plugin\MediaStorage\App\Media' type='TFC\Core\Plugin\MediaStorage\App\Media'/>
+</type>
+<!-- 2020-12-24
+«PayPal gateway has rejected request. The totals of the cart item amounts do not match order amounts»:
+https://github.com/tradefurniturecompany/site/issues/211 -->
+<type name='Magento\Paypal\Model\Cart'>
+    <plugin name='TFC\Core\Plugin\Paypal\Model\Cart' type='TFC\Core\Plugin\Paypal\Model\Cart'/>
+</type>
+<!-- 2020-02-19
+1) "«The product that was requested doesn't exist. Verify the product and try again.»
+at vendor/magento/module-catalog/Model/ProductRepository.php:310":
+https://github.com/tradefurniturecompany/site/issues/20
+2) The `sales_order_item` table sometimes has a wrong `0` value in the `product_id` column
+for orders placed before the website was migrated to Magento 2:
+https://github.com/tradefurniturecompany/site/issues/20#issuecomment-587985765 -->
+<type name='Magento\Sales\Model\Order'>
+    <plugin name='TFC\Core\Plugin\Sales\Model\Order' type='TFC\Core\Plugin\Sales\Model\Order'/>
+</type>
+<!--
+2019-10-07
+"Transfer the `\Magento\Tax\Helper\Data::getShippingPrice()` and `\Magento\Tax\Model\Config::needPriceConversion()`
+ methods modifications to the `tradefurniturecompany/core` module":
+https://github.com/tradefurniturecompany/core/issues/14
+2020-07-01
+1) «change the delivery options and also the delivery charges calculated»:
+https://github.com/tradefurniturecompany/core/issues/32
+2) Currently, we do not need these plugins anymore:
+https://github.com/tradefurniturecompany/core/issues/32#issuecomment-652184733
+	<type name='Magento\Tax\Helper\Data'>
+		<plugin name='TFC\Core\Plugin\Tax\Helper\Data' type='TFC\Core\Plugin\Tax\Helper\Data'/>
+	</type>
+	<type name='Magento\Tax\Model\Config'>
+		<plugin name='TFC\Core\Plugin\Tax\Model\Config' type='TFC\Core\Plugin\Tax\Model\Config'/>
+	</type>
+-->
+</config>
+    <?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+<type name="Magento\Framework\App\FrontController">
+    <plugin name="install" disabled="true"/>
+</type>
+<type name="Magento\Framework\App\FrontController">
+    <plugin name="OuterEdge_Base::install" type="OuterEdge\Base\Plugin\DbStatusValidator" sortOrder="40"/>
+</type>
+<type name="Magento\Framework\App\FrontControllerInterface">
+    <plugin name="configHash" disabled="true"/>
+</type>
+<type name="Magento\Framework\App\FrontControllerInterface">
+    <plugin name="OuterEdge_Base::configHash" type="OuterEdge\Base\Plugin\ConfigChangeDetector" sortOrder="50"/>
+</type>
+<type name="Magento\Framework\App\Config">
+    <plugin name="OuterEdge_Base::appConfigPlugin" type="OuterEdge\Base\Plugin\Framework\App\Config"/>
+</type>
+</config>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+<!-- WEB API -->
+<preference for="Develodesign\Easymanage\Api\ExportProductsInterface"
+            type="Develodesign\Easymanage\Model\ExportProducts" />
+<preference for="Develodesign\Easymanage\Api\ExportCustomersInterface"
+            type="Develodesign\Easymanage\Model\ExportCustomers" />
+<preference for="Develodesign\Easymanage\Api\SaveProductsInterface"
+            type="Develodesign\Easymanage\Model\SaveProducts" />
+<preference for="Develodesign\Easymanage\Api\RevisionProductsInterface"
+            type="Develodesign\Easymanage\Model\RevisionProducts" />
+<preference for="Develodesign\Easymanage\Api\PingInterface"
+            type="Develodesign\Easymanage\Model\Ping" />
+<preference for="Develodesign\Easymanage\Api\MailprocessInterface"
+            type="Develodesign\Easymanage\Model\Mailprocess" />
+
+<!-- mail template -->
+<preference for="Develodesign\Easymanage\Api\MailTemplateInterface"
+            type="Develodesign\Easymanage\Model\Mailtemplate" />
+
+<!-- importer -->
+
+<preference for="Develodesign\Easymanage\Api\ImporterInterface"
+            type="Develodesign\Easymanage\Model\Importer" />
+
+<!-- triggers -->
+<preference for="Develodesign\Easymanage\Api\TriggerInterface"
+            type="Develodesign\Easymanage\Model\Trigger" />
+
+<!-- attributes -->
+<preference for="Develodesign\Easymanage\Api\AttributesInterface"
+            type="Develodesign\Easymanage\Model\Attributes" />
+
+<!-- test -->
+<preference for="Develodesign\Easymanage\Api\TestInterface"
+            type="Develodesign\Easymanage\Model\Test" />
+
+<!-- custom addons -->
+
+<preference for="Develodesign\Easymanage\Api\MailunsubscribersInterface"
+            type="Develodesign\Easymanage\Model\Addon\Mailunsubscribers\Model" />
+
+</config>
+
+

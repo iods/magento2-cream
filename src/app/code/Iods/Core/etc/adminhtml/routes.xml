@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><!--
+<?xml version="1.0"?>
+<!--
 /**
  * Core module for extending and testing functionality across Magento 2
  *
@@ -9,12 +10,11 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
 
-    <module name="Iods_Core" setup_version="0.0.1">
-        <sequence>
-            <module name="Magento_Backend"/>
-            <module name="Magento_Ui"/>
-        </sequence>
-    </module>
+    <router id="admin">
+        <route id="iods" frontName="iods">
+            <module name="Iods_Core" before="Magento_Backend" />
+        </route>
+    </router>
 </config>

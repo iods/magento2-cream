@@ -13,5 +13,34 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
 
     <default>
+        <csp>
+            <mode>
+                <storefront>
+                    <report_uri>https://dummy.uriports.com/reports/report</report_uri>
+                </storefront>
+            </mode>
+        </csp>
+        <system>
+            <!-- https://github.com/magento/magento2/blob/2.3.2/pub/get.php#L20-L27 -->
+            <media_storage_configuration>
+                <allowed_resources>
+                    <iods_core>media/iods/core/images</iods_core>
+                </allowed_resources>
+            </media_storage_configuration>
+        </system>
+        <core_debug>
+            <block_info>
+                <enable>0</enable>
+            </block_info>
+        </core_debug>
+        <core_two>
+            <block_info>
+                <enable>1</enable>
+            </block_info>
+        </core_two>
+        <general>
+            <notice_enable>1</notice_enable>
+            <notice_type>announcement,new_update,marketing</notice_type>
+        </general>
     </default>
 </config>

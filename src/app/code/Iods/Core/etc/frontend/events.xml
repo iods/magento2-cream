@@ -1,0 +1,13 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:framework:Event/etc/events.xsd'
+>
+<!-- 2020-08-30
+"Prevent Magento from logging the «PayPal NVP gateway errors: You do not have permissions to make this API call
+(#10002: Authentication/Authorization Failed).» message": https://github.com/tradefurniturecompany/core/issues/38
+2020-08-31
+"Prevent Magento from logging the «Invalid state change requested» message to `exception.log`":
+https://github.com/tradefurniturecompany/core/issues/39 -->
+	<event name='df_can_log'><observer instance='TFC\Core\Observer\CanLog' name='TFC\Core\Observer\CanLog'/></event>
+</config>
