@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © Reach Digital (https://www.reachdigital.io/)
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Ho\CompanySwitcher\Block\Adminhtml\Order\View\OwnReference $block */
+
+$order = $block->getOrder();
+?>
+<?php if (! empty($order->getData('own_reference'))): ?>
+    <tr>
+        <th><?php /* @escapeNotVerified */ echo __('Own Reference'); ?></th>
+        <td><?php /* @escapeNotVerified */ echo $block->escapeHtml($order->getData('own_reference')); ?></td>
+    </tr>
+<?php endif; ?>
+

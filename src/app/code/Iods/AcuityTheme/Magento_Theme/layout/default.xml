@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!-- Set The Logo -->
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.svg</argument>
+                <argument name="logo_alt" xsi:type="string">Default Logo</argument>
+                <argument name="logo_width" xsi:type="number">195</argument>
+                <argument name="logo_height" xsi:type="number">35</argument>
+            </arguments>
+        </referenceBlock>
+
+        <!-- Add Promo Panel Area -->
+        <referenceContainer name="header.panel">
+            <container name="promo.panel" htmlTag="div" htmlClass="promo-panel" before="-">
+                <block class="Magento\Cms\Block\Block" name="panel_promotext">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">panel_promotext</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer> 
+
+        <!-- Remove Welcome Message / Leave Header Intact / Header Panel -->
+        <referenceBlock name="header">
+            <arguments>
+                <argument name="show_part" xsi:type="string">other</argument>
+            </arguments>
+        </referenceBlock> 
+
+
+        <!-- Remove Magento Defaults -->
+        <referenceBlock name="advanced-search-link" remove="true"/>
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="register-link" remove="true" />
+        <referenceBlock name="authorization-link" remove="true" />
+        <referenceBlock name="footer_links" remove="true" />
+        <referenceBlock name="store_switcher" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true"/>
+
+        <!-- Disable Compare -->
+        <referenceBlock name="catalog.compare.link" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="catalogsearch.product.addto.compare" remove="true"/>
+        <referenceBlock name="category.product.addto.compare" remove="true"/>
+        <referenceBlock name="crosssell.product.addto.compare" remove="true" />
+        <referenceBlock name="related.product.addto.compare" remove="true" />
+        <referenceBlock name="upsell.product.addto.compare" remove="true" />
+        <referenceBlock name="view.addto.compare" remove="true" /> 
+
+        <!-- Remove Wishlist -->
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+        <referenceBlock name="wish-list-link" remove="true" />
+        <referenceBlock name="view.addto.wishlist" remove="true" /> 
+
+        <!-- Move Copyright To Bottom -->
+        <move element="copyright" destination="before.body.end"/>
+        
+    </body>
+</page>
+ 
+ 
+ 
+ 
+      

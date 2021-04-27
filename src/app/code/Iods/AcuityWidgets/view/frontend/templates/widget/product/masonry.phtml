@@ -1,0 +1,83 @@
+<?php
+use Magento\Framework\App\Action\Action;
+
+/* @var $block \Dholi\Widgets\Block\Widget\ProductsByCategory */
+?>
+<?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())): ?>
+	<?php
+	$alias = 'widget-products-' . $this->getAlias();
+	$type = 'widget-new-grid';
+	$items = $block->getProductCollection()->getItems();
+	$showCart = true;
+
+	$classCount = 0;
+	$classItem = null;
+	$classData = array(0 => 'masonry-item', 1 => 'masonry-item masonry-item__height2', 2 => 'masonry-item masonry-item__height3', 3 => 'masonry-item masonry-item__height4', 4 => 'masonry-item masonry-item__height5');
+?>
+	<div class="block widget masonry-widget">
+		<div class="block-title">
+			<strong role="heading" aria-level="2"><?= $block->escapeHtml($block->getTitle()) ?></strong>
+		</div>
+		<div class="block-content">
+			<div id="<?php echo $alias ?>" class="products-grid grid masonry" data-masonry='{ "itemSelector": ".masonry-item", "percentPosition": true }'>
+				<?php foreach ($items as $_item): ?>
+					<?php
+					$classCount = ($classCount > 4 ? 0 : $classCount);
+					$classItem = $classData[$classCount];
+					$classCount++;
+					?>
+					<div class="<?php echo $classItem ?>">
+						<div class="product-item-info">
+							<a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+							   class="product-item-photo">
+								<?= $block->getImage($_item, 'category_page_grid')->toHtml() ?>
+							</a>
+							<div class="product-item-details">
+								<strong class="product-item-name">
+									<a title="<?= $block->escapeHtml($_item->getName()) ?>"
+									   href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+									   class="product-item-link">
+										<?= $block->escapeHtml($_item->getName()) ?>
+									</a>
+								</strong>
+								
+								<?= $block->getProductPriceHtml($_item, $type) ?>
+								
+								<?= $block->getProductDetailsHtml($_item) ?>
+								
+								<?php if ($showCart) : ?>
+									<div class="product-item-inner">
+										<div class="product-item-actions">
+											<div class="actions-primary">
+												<?php if ($_item->isSaleable()) : ?>
+													<?php $postParams = $block->getAddToCartPostParams($_item); ?>
+													<form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= $block->escapeUrl($postParams['action']) ?>" method="post">
+														<input type="hidden" name="product" value="<?= $block->escapeHtmlAttr($postParams['data']['product']) ?>">
+														<input type="hidden" name="<?= Action::PARAM_NAME_URL_ENCODED ?>" value="<?= $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+														<?= $block->getBlockHtml('formkey') ?>
+														<button type="submit"
+														        title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
+														        class="action tocart primary">
+															<span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+														</button>
+													</form>
+												<?php else : ?>
+													<?php if ($_item->getIsSalable()) : ?>
+														<div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+													<?php else : ?>
+														<div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
+													<?php endif; ?>
+												<?php endif; ?>
+											</div>
+										</div>
+									</div>
+								<?php endif; ?>
+							</div>
+						</div>
+					</div>
+				<?php endforeach ?>
+			</div>
+			<?= $block->getPagerHtml() ?>
+		</div>
+	</div>
+<?php endif; ?>

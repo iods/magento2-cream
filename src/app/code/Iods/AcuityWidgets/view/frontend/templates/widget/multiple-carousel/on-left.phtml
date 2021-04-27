@@ -1,0 +1,47 @@
+<?php
+/* @var $block \Dholi\Widgets\Block\Widget\Carousel */
+$items = $block->getItensCollection();
+if ($exist = ($items && $items->getSize())) {
+	$alias = 'widget-multiple-carousel-' . $this->getAlias();
+	$style = $this->getCssStyle();
+}
+?>
+<?php if ($exist): ?>
+	<div class="block widget widget-multiple-carousel left">
+		<div id="<?php echo $alias; ?>" class="owl-carousel owl-theme">
+			<?php foreach ($items as $item): ?>
+				<div class="item full overlay">
+					<div class="image overlay" style="background-image:url(<?php echo $block->getItemImageUrl($item) ?>)"></div>
+					<a href="<?php echo $item->getUrl() ?>" target="<?php echo $item->getTargetUrl() ?>">
+						<div class="container">
+							<div class="row">
+								<div>
+									<h2 style="<?php echo $style ?>"><?php echo $item->getTitle() ?></h2>
+									<p><span class="description" style="<?php echo $style ?>"><?php echo $item->getDescription() ?></span></p>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			<?php endforeach ?>
+		</div>
+
+		<script type="text/javascript">
+			require([
+				'jquery',
+				'DholiOwlCarousel'
+			], function ($, owlCarousel) {
+				$(document).ready(function () {
+					$(<?php echo "'#{$alias}'"?>).owlCarousel({
+						items: 1,
+						loop: true,
+						dots: true,
+						navText: ["", ""],
+						rewindNav: true,
+						nav: false
+					});
+				});
+			});
+		</script>
+	</div>
+<?php endif; ?>

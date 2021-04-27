@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Dholi_Widgets::slider"
+		     title="Slider"
+		     module="Dholi_Widgets"
+		     action="dholiwidgets/slider/index"
+		     parent="Dholi_Core::menu"
+		     resource="Magento_Backend::content"
+		     sortOrder="20"/>
+
+		<add id="Dholi_Widgets::slider_itens"
+		     title="Slider item"
+		     module="Dholi_Widgets"
+		     action="dholiwidgets/slideritem/index"
+		     parent="Dholi_Widgets::slider"
+		     resource="Magento_Backend::content"
+		     sortOrder="21"/>
+	</menu>
+</config>

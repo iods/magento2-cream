@@ -1,0 +1,13 @@
+<!--
+  ~ Copyright © Reach Digital (https://www.reachdigital.io/)
+  ~ See LICENSE.txt for license details.
+  -->
+<div class="field">
+    <label class="label"><span data-bind="i18n: 'Order type:'"></span></label>
+    <div class="control" id="company-switcher">
+        <input type="radio" id="billing:type_private" name="billing[type]" attr="title: $t('Private')" class="order-type validation-passed" value="0" checked="checked">
+        <label class="radio-inline" for="billing:type_private"><span data-bind="i18n: 'Private'"></span></label>
+        <input type="radio" id="billing:type_business" name="billing[type]" attr="title: $t('Business')" class="order-type validation-passed" value="1">
+        <label class="radio-inline" for="billing:type_business"><span data-bind="i18n: 'Business'"></span></label>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<?php
+/*
+ * @category Magento-2 UserWay Widget Module
+ * @package Userway_Widget
+ * @copyright Copyright (c) 2021
+ */
+
+/**
+ * @var \Userway\Block\Frame $block
+ */
+?>
+
+<style>
+    #userway-frame {
+        width: 100%;
+        height: 1180px;
+        border: none;
+    }
+</style>
+
+<div class="frame-container">
+    <iframe id="userway-frame"
+        data-id="<?= $block->getRecordId() ?>"
+        data-url="<?= $block->getEnableUrl() ?>"
+        data-toggleUrl="<?= $block->getToggleEnableUrl() ?>"
+        src="<?= $block->getFrameUrl() ?>"
+    >
+    </iframe>
+</div>

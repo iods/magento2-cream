@@ -1,0 +1,42 @@
+<h1 class="example1">Example 1</h1>
+<script>
+    require(['jquery'], function ($) {
+        $('.example1').css({backgroundColor: 'lightblue'});
+    });
+</script>
+
+<h1 class="example2">Example 2</h1>
+<script>
+    require(['backgroundColorChanger'], function (backgroundColorChanger) {
+        backgroundColorChanger({color: 'lightgreen'}, '.example2');
+    });
+</script>
+
+<h1 class="example3" data-mage-init='{"backgroundColorChanger": {"color": "orange"}}'>Example 3</h1>
+
+<h1 class="example4">Example 4</h1>
+<script type="text/x-magento-init">
+{
+    ".example4": {
+        "backgroundColorChanger": {"color": "pink"}
+    }
+}
+</script>
+
+<div data-bind="scope: 'example5'">
+    <h1 class="example5" data-bind="style: {backgroundColor: color}">Example 5</h1>
+</div>
+<script type="text/x-magento-init">
+    {
+        ".example5": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "example5": {
+                        "component": "uiComponent",
+                        "color": "purple"
+                    }
+                }
+            }
+        }
+    }
+</script>

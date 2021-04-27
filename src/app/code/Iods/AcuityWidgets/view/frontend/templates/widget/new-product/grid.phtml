@@ -1,0 +1,75 @@
+<?php
+use Magento\Framework\App\Action\Action;
+
+/** @var $block \Dholi\Widgets\Block\Widget\NewProduct */
+?>
+<?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())): ?>
+	<?php
+	$type = 'widget-new-grid';
+	$items = $block->getProductCollection()->getItems();
+	$showCart = true;
+	?>
+	<div class="block widget widget-new-products grid">
+		<div class="block-title">
+			<strong role="heading" aria-level="2"><?php echo $block->escapeHtml(__('New Products')) ?></strong>
+		</div>
+		<div class="block-content">
+			<div class="products-grid grid">
+				<ol class="product-items <?php echo $type ?>">
+					<?php foreach ($items as $_item) : ?>
+						<li class="product-item">
+							<div class="product-item-info">
+								<a href="<?php echo $block->escapeUrl($block->getProductUrl($_item)) ?>"
+								   class="product-item-photo">
+									<?php echo $block->getImage($_item, 'new_products_content_widget_grid')->toHtml() ?>
+								</a>
+								<div class="product-item-details">
+									<strong class="product-item-name">
+										<a title="<?php echo $block->escapeHtml($_item->getName()) ?>"
+										   href="<?php echo $block->escapeUrl($block->getProductUrl($_item)) ?>"
+										   class="product-item-link">
+											<?php echo $block->escapeHtml($_item->getName()) ?>
+										</a>
+									</strong>
+									
+									<?= $block->getProductPriceHtml($_item, $type) ?>
+									
+									<?= $block->getProductDetailsHtml($_item) ?>
+									
+									<?php if ($showCart) : ?>
+										<div class="product-item-inner">
+											<div class="product-item-actions">
+												<div class="actions-primary">
+														<?php if ($_item->isSaleable()) : ?>
+															<?php $postParams = $block->getAddToCartPostParams($_item); ?>
+															<form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= $block->escapeUrl($postParams['action']) ?>" method="post">
+																<input type="hidden" name="product" value="<?= $block->escapeHtmlAttr($postParams['data']['product']) ?>">
+																<input type="hidden" name="<?= Action::PARAM_NAME_URL_ENCODED ?>" value="<?= $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+																<?= $block->getBlockHtml('formkey') ?>
+																<button type="submit"
+																        title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
+																        class="action tocart primary">
+																	<span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+																</button>
+															</form>
+														<?php else : ?>
+															<?php if ($_item->getIsSalable()) : ?>
+																<div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+															<?php else : ?>
+																<div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
+															<?php endif; ?>
+														<?php endif; ?>
+													</div>
+											</div>
+										</div>
+									<?php endif; ?>
+								</div>
+							</div>
+						</li>
+					<?php endforeach ?>
+				</ol>
+			</div>
+			<?= $block->getPagerHtml() ?>
+		</div>
+	</div>
+<?php endif; ?>

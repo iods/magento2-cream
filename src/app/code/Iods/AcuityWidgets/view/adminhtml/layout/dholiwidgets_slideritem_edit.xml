@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<title>Item Slider</title>
+	</head>
+	<body>
+		<referenceBlock name="menu">
+			<action method="setActive">
+				<argument name="itemId" xsi:type="string">Dholi_Widgets::slider_itens</argument>
+			</action>
+		</referenceBlock>
+		<referenceContainer name="page.main.actions">
+			<block class="Magento\Backend\Block\Store\Switcher" name="store_switcher">
+				<action method="setUseConfirm">
+					<argument name="params" xsi:type="string">1</argument>
+				</action>
+			</block>
+		</referenceContainer>
+		<referenceContainer name="content">
+			<block class="Dholi\Widgets\Block\Adminhtml\Slider\Item\Edit" name="slideritem_edit"/>
+		</referenceContainer>
+		<referenceContainer name="left">
+			<block class="Dholi\Widgets\Block\Adminhtml\Slider\Item\Edit\Tabs" name="slideritem_edit_tabs">
+				<block class="Dholi\Widgets\Block\Adminhtml\Slider\Item\Edit\Tab\Item" name="slideritem_edit_tab_item"/>
+				<action method="addTab">
+					<argument name="name" xsi:type="string">main_section</argument>
+					<argument name="block" xsi:type="string">slideritem_edit_tab_item</argument>
+				</action>
+			</block>
+		</referenceContainer>
+	</body>
+</page>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+	<virtualType name="ItemGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+		<arguments>
+			<argument name="appliers" xsi:type="array">
+				<item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+				<item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+			</argument>
+		</arguments>
+	</virtualType>
+
+	<virtualType name="ItemGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+		<arguments>
+			<argument name="collection" xsi:type="object" shared="false">Dholi\Widgets\Model\ResourceModel\Slider\Collection</argument>
+			<argument name="filterPool" xsi:type="object" shared="false">ItemGridFilterPool</argument>
+		</arguments>
+	</virtualType>
+
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="slider_grid_listing_data_source" xsi:type="string">Dholi\Widgets\Model\ResourceModel\Slider\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="slideritem_grid_listing_data_source" xsi:type="string">Dholi\Widgets\Model\ResourceModel\Slider\Item\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+
+	<!-- Data Provider -->
+	<virtualType name="ItemGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+		<arguments>
+			<argument name="collection" xsi:type="object" shared="false">Dholi\Widgets\Model\ResourceModel\Slider\Item\Collection</argument>
+			<argument name="filterPool" xsi:type="object" shared="false">ItemGridFilterPool</argument>
+		</arguments>
+	</virtualType>
+
+	<type name="Dholi\Widgets\Model\ResourceModel\Slider\Grid\Collection">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">dholi_widgets_slider</argument>
+			<argument name="eventPrefix" xsi:type="string">slider_grid_collection</argument>
+			<argument name="eventObject" xsi:type="string">slider_collection</argument>
+			<argument name="resourceModel" xsi:type="string">Dholi\Widgets\Model\ResourceModel\Slider</argument>
+		</arguments>
+	</type>
+
+	<type name="Dholi\Widgets\Model\ResourceModel\Slider\Item\Grid\Collection">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">dholi_widgets_slider_item</argument>
+			<argument name="eventPrefix" xsi:type="string">item_grid_collection</argument>
+			<argument name="eventObject" xsi:type="string">item_collection</argument>
+			<argument name="resourceModel" xsi:type="string">Dholi\Widgets\Model\ResourceModel\Slider\Item</argument>
+		</arguments>
+	</type>
+</config>

@@ -1,0 +1,46 @@
+<?php
+/**
+ * Copyright © Reach Digital (https://www.reachdigital.io/)
+ * See LICENSE.txt for license details.
+ */
+
+namespace Ho\CompanySwitcher\Plugin;
+
+use Magento\Sales\Api\Data\OrderInterface;
+use Magento\Sales\Api\Data\OrderSearchResultInterface;
+use Magento\Sales\Model\OrderRepository;
+
+class ModelOrderRepositoryPlugin
+{
+    /**
+     * @param OrderRepository   $subject
+     * @param OrderInterface    $order
+     *
+     * @return OrderInterface
+     */
+    public function afterGet(OrderRepository $subject, OrderInterface $order)
+    {
+        $extensionAttributes = $order->getExtensionAttributes();
+
+        $extensionAttributes->setOwnReference($order->getData('own_reference'));
+
+        $order->setExtensionAttributes($extensionAttributes);
+
+        return $order;
+    }
+
+    /**
+     * @param OrderRepository               $subject
+     * @param OrderSearchResultInterface    $orderCollection
+     *
+     * @return OrderSearchResultInterface
+     */
+    public function afterGetList(OrderRepository $subject, OrderSearchResultInterface $orderCollection)
+    {
+        foreach ($orderCollection->getItems() as $order) {
+            $this->afterGet($subject, $order);
+        }
+
+        return $orderCollection;
+    }
+}

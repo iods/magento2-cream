@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget class="Dholi\Widgets\Block\Widget\Carousel" id="dholi_carousel_widget" is_email_compatible="true" ttl="86400">
+		<label>dholi | Carousel</label>
+		<description></description>
+		<parameters>
+			<parameter name="slider" xsi:type="select" source_model="Dholi\Widgets\Model\Config\Source\Slider" visible="true" required="true">
+				<label translate="true">Slider</label>
+			</parameter>
+			<parameter name="layout" xsi:type="select" visible="true" required="true">
+				<label translate="true">Layout</label>
+				<options>
+					<option name="fixed" value="fixed">
+						<label translate="true">Fixed</label>
+					</option>
+					<option name="fullwidth" value="fullwidth" selected="true">
+						<label translate="true">Full Width</label>
+					</option>
+					<option name="fullscreen" value="fullscreen">
+						<label translate="true">Full Screen</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="width" xsi:type="text" visible="true" required="true">
+				<label translate="true">Slider width</label>
+				<value>1920</value>
+			</parameter>
+			<parameter name="height" xsi:type="text" visible="true" required="true">
+				<label translate="true">Slider height</label>
+				<value>480</value>
+			</parameter>
+			<parameter name="template" xsi:type="select" visible="true" required="true">
+				<label translate="true">Template</label>
+				<options>
+					<option name="default" value="widget/carousel.phtml" selected="true">
+						<label translate="true">Default Template</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="cache_lifetime" xsi:type="text" visible="true">
+				<label translate="true">Cache Lifetime (Seconds)</label>
+				<description translate="true">
+					<![CDATA[Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
+				</description>
+			</parameter>
+		</parameters>
+	</widget>
+
+	<widget class="Dholi\Widgets\Block\Widget\MultipleCarousel" id="dholi_multiple_carousel_widget" is_email_compatible="true" ttl="86400">
+		<label>dholi | Carousel + Text Block</label>
+		<description></description>
+		<parameters>
+			<parameter name="slider" xsi:type="select" source_model="Dholi\Widgets\Model\Config\Source\Slider" visible="true" required="true">
+				<label translate="true">Slider</label>
+			</parameter>
+			<parameter name="bg_color" xsi:type="text" visible="true">
+				<label translate="true">Background color</label>
+			</parameter>
+			<parameter name="color" xsi:type="text" visible="true">
+				<label translate="true">Text color</label>
+			</parameter>
+			<parameter name="template" xsi:type="select" visible="true" required="true">
+				<label translate="true">Template</label>
+				<options>
+					<option name="left" value="widget/multiple-carousel/on-left.phtml" selected="true">
+						<label translate="true">Carousel on the left</label>
+					</option>
+					<option name="right" value="widget/multiple-carousel/on-right.phtml">
+						<label translate="true">Carousel on the right</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="cache_lifetime" xsi:type="text" visible="true">
+				<label translate="true">Cache Lifetime (Seconds)</label>
+				<description translate="true">
+					<![CDATA[Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
+				</description>
+			</parameter>
+		</parameters>
+	</widget>
+
+	<widget class="Dholi\Widgets\Block\Widget\Banner" id="dholi_banner_widget" is_email_compatible="true" ttl="86400">
+		<label>dholi | Banner</label>
+		<description></description>
+		<parameters>
+			<parameter name="slider" xsi:type="select" source_model="Dholi\Widgets\Model\Config\Source\Slider" visible="true" required="true">
+				<label translate="true">Slider</label>
+			</parameter>
+			<parameter name="total" xsi:type="select" source_model="Dholi\Widgets\Model\Config\Source\TotalBanners" visible="true" required="true">
+				<label translate="true">Banners</label>
+			</parameter>
+			<parameter name="template" xsi:type="select" visible="true" required="true">
+				<label translate="true">Template</label>
+				<options>
+					<option name="default" value="widget/banner.phtml" selected="true">
+						<label translate="true">Default Template</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="cache_lifetime" xsi:type="text" visible="true">
+				<label translate="true">Cache Lifetime (Seconds)</label>
+				<description translate="true">
+					<![CDATA[Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
+				</description>
+			</parameter>
+		</parameters>
+	</widget>
+
+	<widget class="Dholi\Widgets\Block\Widget\BestSellers" id="dholi_bestsellers_widget" is_email_compatible="true" ttl="86400">
+		<label>dholi | Best Sellers</label>
+		<description></description>
+		<parameters>
+			<parameter name="products_count" xsi:type="text" visible="true" required="true">
+				<label translate="true">Number of Products to Display</label>
+				<value>12</value>
+			</parameter>
+			<parameter name="template" xsi:type="select" visible="true" required="true">
+				<label translate="true">Template</label>
+				<options>
+					<option name="default" value="widget/bestsellers/grid.phtml" selected="true">
+						<label translate="true">Viewed Products Grid Template</label>
+					</option>
+					<option name="carousel" value="widget/bestsellers/carousel.phtml">
+						<label translate="true">Viewed Products Carousel Template</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="cache_lifetime" xsi:type="text" visible="true">
+				<label translate="true">Cache Lifetime (Seconds)</label>
+				<description translate="true">
+					<![CDATA[Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
+				</description>
+			</parameter>
+		</parameters>
+	</widget>
+
+	<widget class="Dholi\Widgets\Block\Widget\OnSale" id="dholi_onsale_widget" is_email_compatible="true" ttl="86400">
+		<label>dholi | On Sale Products</label>
+		<description></description>
+		<parameters>
+			<parameter name="products_count" xsi:type="text" visible="true" required="true">
+				<label translate="true">Number of Products to Display</label>
+				<value>12</value>
+			</parameter>
+			<parameter name="template" xsi:type="select" visible="true" required="true">
+				<label translate="true">Template</label>
+				<options>
+					<option name="default" value="widget/on-sale/grid.phtml" selected="true">
+						<label translate="true">Viewed Products Grid Template</label>
+					</option>
+					<option name="carousel" value="widget/on-sale/carousel.phtml">
+						<label translate="true">Viewed Products Carousel Template</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="cache_lifetime" xsi:type="text" visible="true">
+				<label translate="true">Cache Lifetime (Seconds)</label>
+				<description translate="true">
+					<![CDATA[Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
+				</description>
+			</parameter>
+		</parameters>
+	</widget>
+
+	<widget class="Dholi\Widgets\Block\Widget\NewProduct" id="dholi_new_products" is_email_compatible="true"
+	        placeholder_image="Magento_Catalog::images/product_widget_new.png" ttl="86400">
+		<label translate="true">dholi | New Products</label>
+		<description translate="true">List of Products that are set as New</description>
+		<parameters>
+			<parameter name="display_type" xsi:type="select" required="true" visible="true">
+				<label translate="true">Display Type</label>
+				<description translate="true">All products - recently added products, New products - products marked as new</description>
+				<options>
+					<option name="default" value="all_products" selected="true">
+						<label translate="true">All products</label>
+					</option>
+					<option name="item" value="new_products">
+						<label translate="true">New products</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="products_count" xsi:type="text" required="true" visible="true">
+				<label translate="true">Number of Products to Display</label>
+				<value>20</value>
+			</parameter>
+			<parameter name="products_per_page" xsi:type="text" required="true" visible="true">
+				<label translate="true">Number of Products per Page</label>
+				<value>10</value>
+			</parameter>
+			<parameter name="template" xsi:type="select" required="true" visible="true">
+				<label translate="true">Template</label>
+				<options>
+					<option name="default" value="widget/new-product/grid.phtml" selected="true">
+						<label translate="true">Viewed Products Grid Template</label>
+					</option>
+					<option name="carousel" value="widget/new-product/carousel.phtml">
+						<label translate="true">Viewed Products Carousel Template</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="cache_lifetime" xsi:type="text" visible="true">
+				<label translate="true">Cache Lifetime (Seconds)</label>
+				<description translate="true">
+					<![CDATA[Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
+				</description>
+			</parameter>
+		</parameters>
+	</widget>
+
+	<widget class="Dholi\Widgets\Block\Widget\ProductsByCategory" id="dholi_product_widget" is_email_compatible="true" ttl="86400">
+		<label>dholi | Products By Category</label>
+		<description></description>
+		<parameters>
+			<parameter name="id_path" xsi:type="block" visible="true" required="true">
+				<label translate="true">Category</label>
+				<block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+					<data>
+						<item name="button" xsi:type="array">
+							<item name="open" xsi:type="string" translate="true">Select Category...</item>
+						</item>
+					</data>
+				</block>
+			</parameter>
+			<parameter name="title" xsi:type="text" visible="true" required="true">
+				<label translate="true">Title</label>
+			</parameter>
+			<parameter name="products_count" xsi:type="text" required="true" visible="true">
+				<label translate="true">Number of Products to Display</label>
+				<value>20</value>
+			</parameter>
+			<parameter name="products_per_page" xsi:type="text" required="true" visible="true">
+				<label translate="true">Number of Products per Page</label>
+				<value>10</value>
+			</parameter>
+			<parameter name="template" xsi:type="select" visible="true" required="true">
+				<label translate="true">Template</label>
+				<options>
+					<option name="default" value="widget/product/grid.phtml" selected="true">
+						<label translate="true">Viewed Products Grid Template</label>
+					</option>
+					<option name="carousel" value="widget/product/carousel.phtml">
+						<label translate="true">Viewed Products Carousel Template</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="cache_lifetime" xsi:type="text" visible="true">
+				<label translate="true">Cache Lifetime (Seconds)</label>
+				<description translate="true">
+					<![CDATA[Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
+				</description>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>

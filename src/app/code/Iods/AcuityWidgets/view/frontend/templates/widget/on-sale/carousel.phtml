@@ -1,0 +1,69 @@
+<?php
+/* @var $block \Dholi\Widgets\Block\Widget\ProductsByCategory */
+$items = $block->getItems();
+if ($exist = ($items && $items->getSize())) {
+	$alias = 'widget-onsale-products-' . $this->getAlias();
+	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+}
+?>
+<?php if ($exist):?>
+	<div class="block widget widget-onsale-products carousel">
+		<div class="block-title">
+			<strong role="heading" aria-level="2"><?= $block->escapeHtml(__('On Sale')) ?></strong>
+		</div>
+		<div class="block-content">
+			<div id="<?php echo $alias; ?>" class="owl-carousel owl-theme">
+				<?php foreach ($items as $_item):?>
+					<div>
+						<div class="product-item-info">
+							<a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+							   class="product-item-photo">
+								<?= $block->getImage($_item, 'category_page_grid')->toHtml() ?>
+							</a>
+							<div class="product-item-details">
+								<strong class="product-item-name">
+									<a title="<?= $block->escapeHtml($_item->getName()) ?>"
+									   href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+									   class="product-item-link">
+										<?= $block->escapeHtml($_item->getName()); ?>
+									</a>
+								</strong>
+
+								<?= $block->getProductPrice($_item); ?>
+							</div>
+						</div>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		require([
+			'jquery',
+			'DholiOwlCarousel'
+		], function($, owlCarousel) {
+			$(document).ready(function () {
+				$(<?php echo "'#{$alias}'"?>).owlCarousel({
+					loop: true,
+					margin: 20,
+					dots: false,
+					navText: ["", ""],
+					rewindNav: true,
+					nav: true,
+					responsive: {
+						0: {
+							items: 1
+						},
+						600: {
+							items: 2
+						},
+						1000: {
+							items: 5
+						}
+					}
+				});
+			});
+		});
+	</script>
+<?php endif;?>

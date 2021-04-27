@@ -1,0 +1,41 @@
+<?php
+/* @var $block \Dholi\Widgets\Block\Widget\OnSale */
+$items = $block->getItems();
+if ($exist = ($items && $items->getSize())) {
+	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+}
+?>
+<?php if ($exist):?>
+	<div class="block widget widget-onsale-products grid">
+		<div class="block-title">
+			<strong role="heading" aria-level="2"><?= $block->escapeHtml(__('On Sale')) ?></strong>
+		</div>
+		<div class="block-content">
+			<div class="products-grid grid">
+				<ol class="product-items widget-add-grid">
+					<?php foreach ($items as $_item):?>
+						<li class="product-item">
+							<div class="product-item-info">
+								<a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+								   class="product-item-photo">
+									<?= $block->getImage($_item, 'category_page_grid')->toHtml() ?>
+								</a>
+								<div class="product-item-details">
+									<strong class="product-item-name">
+										<a title="<?= $block->escapeHtml($_item->getName()) ?>"
+										   href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+										   class="product-item-link">
+											<?= $block->escapeHtml($_item->getName()) ?>
+										</a>
+									</strong>
+
+									<?= $block->getProductPrice($_item); ?>
+								</div>
+							</div>
+						</li>
+					<?php endforeach ?>
+				</ol>
+			</div>
+		</div>
+	</div>
+<?php endif;?>
