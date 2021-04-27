@@ -1,0 +1,127 @@
+<?php
+/** @var $block */
+?>
+<div class="breadcrumbs" id="breadcrumbs-example"></div>
+<a href="#" class="action" title="Open Customer Login"
+   data-mage-init='{"popupWindow": {
+        "windowURL": "/customer/account/login",
+        "windowName": "customer-login",
+        "width": 400,
+        "height": 400,
+        "left": 0,
+        "top": 0,
+        "resizable": 1,
+        "scrollbars": 1,
+        "status": 1,
+        "menubar": 1
+    }}'>
+    <span>Open Customer Login</span>
+</a>
+<br />
+<div class="field">
+    <label>Date : </label>
+    <input type="text" class="input-text" id="example-date" style="width: auto" name="example-date" />
+</div>
+<br />
+<h1>All Items</h1>
+<div class="">
+<?php foreach ($block->getItems() as $item): ?>
+
+<p>
+   <?php echo $item->getName(); ?>: <?php echo $item->getDescription() ?>
+</p>
+<?php endforeach; ?>
+</div>
+<div class="alert-modal-content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+</div>
+
+<script>
+require([
+    'jquery',
+    'Magento_Ui/js/modal/alert'
+], function ($) {
+    'use strict';
+
+    $('.alert-modal-content').alert({
+        title: 'Alert Title',
+        modalClass: 'alert',
+        actions: {
+            always: function() {
+                // do something when the modal is closed
+            }
+        },
+        buttons: [{
+            text: $.mage.__('Accept'),
+            class: 'action primary accept',
+
+            /**
+             * Click handler.
+             */
+            click: function () {
+                this.closeModal(true);
+            }
+        }, {
+            text: $.mage.__('New Action'),
+            class: 'action',
+
+            /**
+             * Click handler.
+             */
+            click: function () {
+                // New action
+            }
+        }]
+    });
+});
+</script>
+
+<script>
+    require([
+        'jquery',
+        'Magento_Theme/js/model/breadcrumb-list',
+        'breadcrumbs'
+    ], function ($, breadcrumbList) {
+        'use strict';
+
+        var breadcrumbs = [
+            {
+                'name': 'Mastering',
+                'link': '/mastering',
+                'title': 'Link title for page 1',
+                'label': 'Mastering'
+            },
+            {
+                'name': 'some-page-1',
+                'link': '/some/path/2',
+                'title': 'Link title for page 1',
+                'label': 'Some page 2'
+            }
+        ];
+
+        // adding breadcrumbs to the Breadcrumb List
+        breadcrumbs.forEach(function (breadcrumb) {
+            breadcrumbList.push(breadcrumb);
+        });
+
+        // Breadcrumbs widget initialization
+        $('#breadcrumbs-example').breadcrumbs();
+    });
+</script>
+<script>
+  require([
+    'jquery',
+    'mage/translate',
+    'mage/calendar'
+    ], function ($, $t) {
+      $('#example-date').calendar({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        currentText: $t('Go Today'),
+        closeText: $t('Close'),
+        showWeek: true
+      });
+    })
+</script>
+
