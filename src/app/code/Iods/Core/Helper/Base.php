@@ -33,5 +33,18 @@ class Base extends AbstractHelper
     public function __construct(Context $context, ObjectManagerInterface $objectManager)
     {
         $this->_dbHelper = $this->generateClassObject(Db::class);
+        $this->_logHelper = $this->generateCLassObject(Log::class);
+
+        parent::__construct($context, $objectManager);
+    }
+
+    public function getDbHelper()
+    {
+        return $this->_dbHelper;
+    }
+
+    public function getLogHelper()
+    {
+        return $this->_logHelper;
     }
 }

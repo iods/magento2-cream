@@ -16,7 +16,7 @@ use Magento\Framework\Logger\Handler\Base;
 use Magento\Framework\Logger\Monolog;
 use Magento\Framework\ObjectManagerInterface;
 
-class Logger extends AbstractHelper
+class Log extends AbstractHelper
 {
     private ObjectManagerInterface $objectManager;
     private array $loggers = [];

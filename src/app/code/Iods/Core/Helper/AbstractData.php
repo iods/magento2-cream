@@ -265,6 +265,7 @@ abstract class AbstractData extends AbstractHelper
 
     public function generateClassObject($class = null): mixed
     {
+        $obj = null;
         try {
             $obj = $this->_objectManager->get($class);
         } catch (\Exception) {
@@ -416,4 +417,9 @@ abstract class AbstractData extends AbstractHelper
             return false;
         }
     }
+
+
+
+
+
 }
