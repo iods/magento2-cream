@@ -1,14 +1,21 @@
 <?xml version="1.0"?>
 <!--
 /**
- * @copyright Copyright © 2021 Orba. All rights reserved.
- * @author    info@orba.co
+ * A toolbox for developers to build and monitor the Acuity UI on Magento 2
+ *
+ * @package   Iods_AcuityDeveloper
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright © 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Orba_StyleGuide">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+
+    <module name="Iods_AcuityDeveloper">
         <sequence>
             <module name="Magento_Theme"/>
+            <module name="Iods_Acuity"/>
         </sequence>
     </module>
 </config>
