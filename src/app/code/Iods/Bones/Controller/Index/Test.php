@@ -14,26 +14,26 @@ namespace Iods\Bones\Controller\Index;
 use Magento\Framework\App\Action\{Action, Context};
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action
+class Test extends Action
 {
     /** @var PageFactory */
-	protected PageFactory $_pageFactory;
+    protected PageFactory $_pageFactory;
 
     /**
      * @param Context $context
      * @param PageFactory $pageFactory
      */
-	public function __construct(Context $context, PageFactory $pageFactory)
-	{
-		$this->_pageFactory = $pageFactory;
-		return parent::__construct($context);
-	}
+    public function __construct(Context $context, PageFactory $pageFactory)
+    {
+        $this->_pageFactory = $pageFactory;
+        return parent::__construct($context);
+    }
 
     /**
-     * @return \Magento\Framework\Controller\ResultInterface|\Magento\Framework\View\Result\Page
+     * @return string
      */
-	public function execute(): \Magento\Framework\View\Result\Page|\Magento\Framework\Controller\ResultInterface
+    public function execute(): string
     {
-	    return $this->_pageFactory->create();
-	}
+        return "Dump the bones.";
+    }
 }

@@ -62,3 +62,6 @@
 !/src/generated/.htaccess
 
 !/src/composer.*
+
+
+/var/env/env

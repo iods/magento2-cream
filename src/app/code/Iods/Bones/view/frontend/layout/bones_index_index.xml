@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Description of a module goes here for Magento 2
+ *
+ * @package   Iods_Bones
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright © 2021, Rye Miller (https://ryemiller.io)
+ * @license   MIT (https://en.wikipedia.org/wiki/MIT_License)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <referenceContainer name="content">
+        <block class="Iods\Bones\Block\Index"
+               name="bones_index_index"
+               template="Iods_Bones::index.phtml" />
+    </referenceContainer>
+</page>
