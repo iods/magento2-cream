@@ -1,5 +1,20 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Frontend updates to the Acuity package for Magento 2
+ *
+ * @package   Iods_AcuityTheme
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright © 2021, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Yireo_ExampleJsBackgroundColor"/>
+
+    <module name="Iods_AcuityTheme">
+        <sequence>
+            <module name="Iods_Acuity"/>
+        </sequence>
+    </module>
 </config>
