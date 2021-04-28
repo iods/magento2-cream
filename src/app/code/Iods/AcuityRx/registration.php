@@ -1,6 +1,6 @@
 <?php
 /**
- * Accessibility plugin for Acuity and Magento 2
+ * Accessibility support plugin for Acuity and Magento 2
  *
  * @package   Iods_AcuityRx
  * @author    Rye Miller <rye@drkstr.dev>

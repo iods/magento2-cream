@@ -9,12 +9,23 @@
  */
 declare(strict_types=1);
 
-namespace Iods\Core\Api;
+namespace Iods\CoreUi\Service\Format\Address;
 
-interface PingInterface {
+class StreetFormat
+{
 
-    /**
-     * @return string
-     */
-    public function ping(): string;
+    public function format()
+    {
+        // format it for the form
+    }
+
+    private function isValid()
+    {
+        // check if it is valid
+    }
+
+    private function formatStreet()
+    {
+        // format it correctly
+    }
 }

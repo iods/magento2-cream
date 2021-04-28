@@ -1,6 +1,6 @@
 <?php
 /**
- * A framework for the testing and optimization of the Magento 2 frontend
+ * A framework for the testing and optimization of Magento 2
  *
  * @package   Iods_Optimize
  * @author    Rye Miller <rye@drkstr.dev>

@@ -14,9 +14,7 @@ namespace Iods\Core\Api;
 interface TestInterface {
 
     /**
-     * Test module setup version
      * @return string
      */
-    public function test();
-
+    public function test(): string;
 }

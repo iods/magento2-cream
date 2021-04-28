@@ -1,6 +1,6 @@
 <?php
 /**
- * Frontend framework updates to the Acuity UI for Magento 2
+ * Frontend updates to the Acuity package for Magento 2
  *
  * @package   Iods_AcuityTheme
  * @author    Rye Miller <rye@drkstr.dev>

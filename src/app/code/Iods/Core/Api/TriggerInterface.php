@@ -14,9 +14,7 @@ namespace Iods\Core\Api;
 interface TriggerInterface {
 
     /**
-     * Trigger data
      * @return string
      */
-    public function trigger();
-
+    public function trigger(): string;
 }

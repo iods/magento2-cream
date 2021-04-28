@@ -1,6 +1,6 @@
 <?php
 /**
- * Widgets built on top of Acuity for Magento 2
+ * Widgets built on top of the Acuity UI for Magento 2
  *
  * @package   Iods_AcuityWidgets
  * @author    Rye Miller <rye@drkstr.dev>
