@@ -11,17 +11,10 @@ declare(strict_types=1);
 
 namespace Iods\Core\Cron;
 
-use Iods\Core\Helper\Data;
-use Iods\Core\Helper\Log;
-
-class Base
+class CronJobName extends AbstractCron
 {
-    protected $helperData;
-    protected $helperLog;
-
-    public function __construct(Data $helperData, Log $helperLog)
+    public function execute()
     {
-        $this->helperData = $helperData;
-        $this->helperLog = $helperLog;
+        // ...
     }
 }
