@@ -12,12 +12,24 @@
 <include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
 
-    <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+    <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label" type="text">
         <label><![CDATA[General Configuration]]></label>
-        <frontend_model>Magento\Config\Block\System\Config\Form\Fieldset</frontend_model>
-        <field id="version" translate="label" type="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+        <field id="version" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="10" translate="label" type="label">
             <label>Extension version</label>
             <frontend_model>Iods\Core\Block\Adminhtml\System\Config\Field\Version</frontend_model>
+        </field>
+        <field id="notify" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10" type="select" translate="label comment">
+            <label>Enable Notifications</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment>Enable notifications for code pushes and dependency requirements.</comment>
+        </field>
+        <field id="notify_type" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10" translate="label comment" type="multiselect">
+            <label>Subject</label>
+            <source_model>Iods\Core\Model\Config\Source\NotifyType</source_model>
+            <depends>
+                <field id="notify">1</field>
+            </depends>
+            <comment>Defines the types of notifications to send.</comment>
         </field>
     </group>
 </include>

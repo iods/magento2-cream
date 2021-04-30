@@ -21,3 +21,9 @@ Then flush the cache:
 
 # Proof of concept
 Run `bin/magento module:status` to see if the module has been installed.
+
+
+1. sample command
+2. route w/ controller
+3. observer
+

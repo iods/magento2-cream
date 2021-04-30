@@ -23,7 +23,7 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 class Version extends Field
 {
     /** @var Data */
-    protected $_helper;
+    protected Data $_helper;
 
     /**
      * @param Context $context
@@ -35,9 +35,8 @@ class Version extends Field
         Data $helper,
         array $data = []
     ) {
-        parent::__construct($context, $data);
-
         $this->_helper = $helper;
+        parent::__construct($context, $data);
     }
 
     /**
