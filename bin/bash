@@ -1,2 +1,13 @@
 #!/usr/bin/env bash
+# Project:     Ravinos Magento Development
+# Description: Description of the file solution or the project?
+# Author:      Rye Miller
+#
+#   ____  ____  ____  ____
+#  ||i  |||o  |||d  |||s  |
+#  ||___|||___|||___|||___|
+#  |/___\|/___\|/_ _\|/___\
+#
+# https://github.com/iods
+
 bin/cli bash
