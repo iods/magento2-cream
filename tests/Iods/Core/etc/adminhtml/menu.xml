@@ -10,11 +10,9 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
 
-    <router id="admin">
-        <route id="iods" frontName="iods">
-            <module name="Iods_Core" before="Magento_Backend" />
-        </route>
-    </router>
+    <menu>
+        <remove id="Magento_Marketplace::partners" />
+    </menu>
 </config>
