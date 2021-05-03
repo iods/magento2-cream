@@ -90,7 +90,7 @@ services:
     networks:
       - magedin
     volumes:
-      - ./.config/varnish/:/etc/varnish
+      - ./config/varnish/:/etc/varnish
 
   # Disabling cron by default as it uses higher CPU, enable if needed
   #cron:

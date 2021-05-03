@@ -6,7 +6,7 @@ services:
 
   nginx:
     volumes: &appvolumes
-      - ./.config/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./config/nginx/conf.d/:/etc/nginx/conf.d/
       - ./src:/var/www/html:cached
 
   php:
