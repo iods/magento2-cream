@@ -1,1 +1,0 @@
-SELECT DISTINCT `recipient_email` FROM `core_email_queue` INNER JOIN `core_email_queue_recipients` ON `core_email_queue`.`message_id` = `core_email_queue_recipients`.`message_id` WHERE `processed_at` > '2017-10-30 00:00:00' AND `created_at` < '2017-10-25 00:00:00'
