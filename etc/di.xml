@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cache Rules Everything Around Magento
+ *
+ * @version   000.1.0
+ * @author    Rye Miller <rye@drkstr.dev>
+ * @copyright Copyright (c) 2021-2022, Rye Miller (https://ryemiller.io)
+ * @license   See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!--
+      Notes: CLI Commands go here
+       * items- vendor_module_command_name
+    -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="iods_cream_cache_image_clear_command" xsi:type="object">Iods\Cream\Console\Command\CacheImageClearCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

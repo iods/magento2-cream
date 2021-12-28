@@ -1,0 +1,50 @@
+{
+  "name": "iods/module-cream",
+  "description": "Cache Rules Everything Around Me and Magento 2",
+  "type": "magento2-module",
+  "license": [
+    "MIT"
+  ],
+  "minimum-stability": "dev",
+  "repositories": {
+    "magento": {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "magento/framework": "*",
+    "magento/module-catalog": "*",
+    "magento/module-config": "*",
+    "magento/module-backend": "*",
+    "symfony/console": "*"
+  },
+  "require-dev": {
+    "phpstan/extension-installer": "^1.0",
+    "phpstan/phpstan": "^0.11",
+    "phpstan/phpstan-phpunit": "^0.11",
+    "phpunit/phpunit": "*",
+    "composer/composer": "*@dev"
+  },
+  "autoload": {
+    "files": ["registration.php"],
+    "psr-4": {
+      "Iods\\Cream\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Iods\\Cream\\Tests\\Unit\\": "tests/unit"
+    }
+  },
+  "scripts": {
+    "test": [
+      "@phpstan",
+      "@phpunit"
+    ],
+    "phpstan": "phpstan analyse",
+    "phpunit": "phpunit --no-coverage"
+  },
+  "version": "000.1.1"
+}
