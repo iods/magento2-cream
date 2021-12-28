@@ -1,16 +1,8 @@
-Docker Stack
-============
+Magento 2 C.R.E.A.M.
+====================
 
-Sandbox of Docker development locally. Language and platform agnostic.
+Cache Rules Everything Around Magento.
+Caches Rule Everything Around Magento.
+Cache Ruins Everything Around Magento.
 
-
-License
--------
-
-This project/code is released under [the MIT license](https://github.com/iods/docker-stack/LICENSE).
-
-
-Copyright
----------
-
-(c) 2020 Rye Miller. All Rights Reserved.
+And so on.

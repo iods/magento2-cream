@@ -1,7 +1,0 @@
-version: '3'
-services:
-  service:
-    container_name: container_service
-    build:
-      context: .docker/service
-      # dockerfile: Dockerfile (use me if named different)
